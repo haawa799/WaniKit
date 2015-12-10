@@ -14,7 +14,7 @@ import UIKit
     A condition for verifying that we can present alerts to the user via
     `UILocalNotification` and/or remote notifications.
 */
-struct UserNotificationCondition: OperationCondition {
+public struct UserNotificationCondition: OperationCondition {
     
     enum Behavior {
         /// Merge the new `UIUserNotificationSettings` with the `currentUserNotificationSettings`.
@@ -24,10 +24,10 @@ struct UserNotificationCondition: OperationCondition {
         case Replace
     }
     
-    static let name = "UserNotification"
+    public static let name = "UserNotification"
     static let currentSettings = "CurrentUserNotificationSettings"
     static let desiredSettings = "DesiredUserNotificationSettigns"
-    static let isMutuallyExclusive = false
+    public static let isMutuallyExclusive = false
     
     let settings: UIUserNotificationSettings
     let application: UIApplication
@@ -54,11 +54,11 @@ struct UserNotificationCondition: OperationCondition {
         self.behavior = behavior
     }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         return UserNotificationPermissionOperation(settings: settings, application: application, behavior: behavior)
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         let result: OperationConditionResult
         
         let current = application.currentUserNotificationSettings()

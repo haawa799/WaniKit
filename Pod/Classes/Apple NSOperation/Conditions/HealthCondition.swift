@@ -15,11 +15,11 @@ import UIKit
     A condition to indicate an `Operation` requires access to the user's health
     data.
 */
-struct HealthCondition: OperationCondition {
-    static let name = "Health"
-    static let healthDataAvailable = "HealthDataAvailable"
-    static let unauthorizedShareTypesKey = "UnauthorizedShareTypes"
-    static let isMutuallyExclusive = false
+public struct HealthCondition: OperationCondition {
+    public static let name = "Health"
+    public static let healthDataAvailable = "HealthDataAvailable"
+    public static let unauthorizedShareTypesKey = "UnauthorizedShareTypes"
+    public static let isMutuallyExclusive = false
     
     let shareTypes: Set<HKSampleType>
     let readTypes: Set<HKSampleType>
@@ -38,7 +38,7 @@ struct HealthCondition: OperationCondition {
         readTypes = typesToRead
     }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         guard HKHealthStore.isHealthDataAvailable() else {
             return nil
         }
@@ -50,7 +50,7 @@ struct HealthCondition: OperationCondition {
         return HealthPermissionOperation(shareTypes: shareTypes, readTypes: readTypes)
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         guard HKHealthStore.isHealthDataAvailable() else {
             failed(shareTypes, completion: completion)
             return

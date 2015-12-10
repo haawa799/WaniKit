@@ -9,22 +9,22 @@ This file shows an example of implementing the OperationCondition protocol.
 import Foundation
 
 /// A generic condition for describing kinds of operations that may not execute concurrently.
-struct MutuallyExclusive<T>: OperationCondition {
-    static var name: String {
+public struct MutuallyExclusive<T>: OperationCondition {
+    public static var name: String {
         return "MutuallyExclusive<\(T.self)>"
     }
 
-    static var isMutuallyExclusive: Bool {
+    public static var isMutuallyExclusive: Bool {
         return true
     }
     
     init() { }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         return nil
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         completion(.Satisfied)
     }
 }

@@ -14,14 +14,14 @@ import Foundation
     the user's location, but you do not want to prompt them for permission if you
     do not already have it.
 */
-struct SilentCondition<T: OperationCondition>: OperationCondition {
+public struct SilentCondition<T: OperationCondition>: OperationCondition {
     let condition: T
     
-    static var name: String {
+    public static var name: String {
         return "Silent<\(T.name)>"
     }
     
-    static var isMutuallyExclusive: Bool {
+    public static var isMutuallyExclusive: Bool {
         return T.isMutuallyExclusive
     }
     
@@ -29,12 +29,12 @@ struct SilentCondition<T: OperationCondition>: OperationCondition {
         self.condition = condition
     }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         // Returning nil means we will never a dependency to be generated.
         return nil
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         condition.evaluateForOperation(operation, completion: completion)
     }
 }

@@ -12,7 +12,7 @@ import Foundation
     `TimeoutObserver` is a way to make an `Operation` automatically time out and
     cancel after a specified time interval.
 */
-struct TimeoutObserver: OperationObserver {
+public struct TimeoutObserver: OperationObserver {
     // MARK: Properties
 
     static let timeoutKey = "Timeout"

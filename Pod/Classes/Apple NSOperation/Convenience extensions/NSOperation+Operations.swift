@@ -16,7 +16,7 @@ extension NSOperation {
     func addCompletionBlock(block: Void -> Void) {
         if let existing = completionBlock {
             /*
-                If we already have a completion block, we construct a new one by
+                If we already have a completion block, we conpublic struct a new one by
                 chaining them together.
             */
             completionBlock = {

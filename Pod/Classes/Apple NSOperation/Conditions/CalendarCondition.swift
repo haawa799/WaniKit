@@ -9,11 +9,11 @@ This file shows an example of implementing the OperationCondition protocol.
 import EventKit
 
 /// A condition for verifying access to the user's calendar.
-struct CalendarCondition: OperationCondition {
+public struct CalendarCondition: OperationCondition {
     
-    static let name = "Calendar"
-    static let entityTypeKey = "EKEntityType"
-    static let isMutuallyExclusive = false
+    public static let name = "Calendar"
+    public static let entityTypeKey = "EKEntityType"
+    public static let isMutuallyExclusive = false
     
     let entityType: EKEntityType
     
@@ -21,11 +21,11 @@ struct CalendarCondition: OperationCondition {
         self.entityType = entityType
     }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         return CalendarPermissionOperation(entityType: entityType)
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         switch EKEventStore.authorizationStatusForEntityType(entityType) {
             case .Authorized:
                 completion(.Satisfied)

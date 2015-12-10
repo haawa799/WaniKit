@@ -11,18 +11,18 @@ This file shows an example of implementing the OperationCondition protocol.
 import Photos
 
 /// A condition for verifying access to the user's Photos library.
-struct PhotosCondition: OperationCondition {
+public struct PhotosCondition: OperationCondition {
     
-    static let name = "Photos"
-    static let isMutuallyExclusive = false
+    public static let name = "Photos"
+    public static let isMutuallyExclusive = false
     
     init() { }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         return PhotosPermissionOperation()
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         switch PHPhotoLibrary.authorizationStatus() {
             case .Authorized:
                 completion(.Satisfied)

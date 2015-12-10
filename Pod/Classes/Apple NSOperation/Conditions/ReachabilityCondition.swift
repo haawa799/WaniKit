@@ -14,10 +14,10 @@ import SystemConfiguration
     It does *not* perform a long-running reachability check, nor does it respond to changes in reachability.
     Reachability is evaluated once when the operation to which this is attached is asked about its readiness.
 */
-struct ReachabilityCondition: OperationCondition {
-    static let hostKey = "Host"
-    static let name = "Reachability"
-    static let isMutuallyExclusive = false
+public struct ReachabilityCondition: OperationCondition {
+    public static let hostKey = "Host"
+    public static let name = "Reachability"
+    public static let isMutuallyExclusive = false
     
     let host: NSURL
     
@@ -26,11 +26,11 @@ struct ReachabilityCondition: OperationCondition {
         self.host = host
     }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         return nil
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         ReachabilityController.requestReachability(host) { reachable in
             if reachable {
                 completion(.Satisfied)
