@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import WaniKit
+
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    WaniApiManager.sharedInstance().setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+    try! WaniApiManager.sharedInstance().fetchStudyQueue { (usr) -> () in
+      //
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
+  }
 }
 
