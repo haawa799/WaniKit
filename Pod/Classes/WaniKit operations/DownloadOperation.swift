@@ -1,5 +1,5 @@
 //
-//  StudyQueueOperation.swift
+//  DownloadOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/10/15.
@@ -8,23 +8,20 @@
 
 import UIKit
 
-public class DownloadStudyQueueOperation: GroupOperation {
-  
-  public private(set) var responseDictionary: NSDictionary?
+public class DownloadOperation: GroupOperation {
   
   let cacheFile: NSURL
   
-  init(apiKey: String, cacheFile: NSURL) {
+  init(url: NSURL, cacheFile: NSURL) {
     
     self.cacheFile = cacheFile
     
     super.init(operations: [])
-    name = "Download Study Queue data"
+    name = "Download Operation"
     //
     
     let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
     let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-    let url = NSURL(string: "\(WaniApiManagerConstants.URL.BaseURL)/user/\(apiKey)/study-queue")!
     let request = NSMutableURLRequest(URL: url)
     request.HTTPMethod = "GET"
     

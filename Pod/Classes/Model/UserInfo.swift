@@ -37,7 +37,7 @@ public struct UserInfo {
 
 extension UserInfo: DictionaryInitialization {
   
-  init(dict: NSDictionary) {
+  public init(dict: NSDictionary) {
     username = dict[UserInfo.keyUsername] as! String
     if let creation = dict[UserInfo.keyCreationDate] as? Int {
       creationDate = NSDate(timeIntervalSince1970: NSTimeInterval(creation))

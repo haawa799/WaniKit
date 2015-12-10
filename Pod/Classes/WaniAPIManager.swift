@@ -9,15 +9,9 @@
 import UIKit
 
 // MARK: - Constants
-public struct WaniApiManagerConstants {
-  public struct NotificationKey {
-    public static let NoApiKey = "NoApiKeyNotification"
-  }
+public struct WaniKitConstants {
   public struct URL {
     public static let BaseURL = "https://www.wanikani.com/api"
-  }
-  public struct NSUserDefaultsKeys {
-    public static let WaniKaniApiKey = "WaniAPIManagerKey"
   }
   public struct ResponseKeys {
     public static let UserInfoKey = "user_information"
@@ -32,7 +26,13 @@ public enum WaniApiError: ErrorType {
 
 public class WaniApiManager: NSObject {
   
-  let operationQueue = OperationQueue()
+  public private(set) var getStudyQueueOperation: GetStudyQueueOperation?
+  public private(set) var getLevelProgressionOperation: GetLevelProgressionOperation?
+  public private(set) var operationQueue: OperationQueue = {
+    let q = OperationQueue()
+    q.maxConcurrentOperationCount = 1
+    return q
+  }()
   
   // MARK: - Singltone
   
@@ -46,9 +46,21 @@ public class WaniApiManager: NSObject {
     myKey = key
   }
   
-  public func fetchStudyQueue(handler:(UserInfo) -> ()) throws {
-    internalFetchStudyQueue { (user) -> () in
-
+  public func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
+    
+    if (getStudyQueueOperation == nil) || (getStudyQueueOperation?.finished == true) {
+      getStudyQueueOperation = GetStudyQueueOperation(apiKey: myKey!, handler: handler)
+      getStudyQueueOperation?.userInitiated = true
+      operationQueue.addOperation(getStudyQueueOperation!)
+    }
+  }
+  
+  public func fetchLevelProgression(handler: LevelProgressionRecieveBlock) {
+    
+    if (getLevelProgressionOperation == nil) || (getLevelProgressionOperation?.finished == true) {
+      getLevelProgressionOperation = GetLevelProgressionOperation(apiKey: myKey!, handler: handler)
+      getLevelProgressionOperation?.userInitiated = true
+      operationQueue.addOperation(getLevelProgressionOperation!)
     }
   }
   
@@ -60,16 +72,6 @@ public class WaniApiManager: NSObject {
   
   private static let instance = WaniApiManager()
   private var myKey: String?
-  
-  private func internalFetchStudyQueue(handler:(UserInfo?) throws -> ()) {
-    
-    let op = GetStudyQueueOperation(apiKey: myKey!) { (userInfo) -> Void in
-      print("HI")
-      print(userInfo)
-    }
-    op.userInitiated = true
-    operationQueue.addOperation(op)
-  }
   
   
   private override init() {
