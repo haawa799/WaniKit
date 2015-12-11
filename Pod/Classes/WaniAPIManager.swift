@@ -24,7 +24,13 @@ public enum WaniApiError: ErrorType {
   case ObjectSereliazationError
 }
 
+public protocol WaniApiManagerDelegate: class {
+  func apiKeyWasUsedBeforeItWasSet()
+}
+
 public class WaniApiManager: NSObject {
+  
+  public weak var delegate: WaniApiManagerDelegate?
   
   public private(set) var getStudyQueueOperation: GetStudyQueueOperation?
   public private(set) var getLevelProgressionOperation: GetLevelProgressionOperation?
@@ -47,24 +53,33 @@ public class WaniApiManager: NSObject {
   }
   
   public func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
+    guard let apiKey = apiKey() else {
+      return
+    }
     
     if (getStudyQueueOperation == nil) || (getStudyQueueOperation?.finished == true) {
-      getStudyQueueOperation = GetStudyQueueOperation(apiKey: myKey!, handler: handler)
+      getStudyQueueOperation = GetStudyQueueOperation(apiKey: apiKey, handler: handler)
       getStudyQueueOperation?.userInitiated = true
       operationQueue.addOperation(getStudyQueueOperation!)
     }
   }
   
   public func fetchLevelProgression(handler: LevelProgressionRecieveBlock) {
+    guard let apiKey = apiKey() else {
+      return
+    }
     
     if (getLevelProgressionOperation == nil) || (getLevelProgressionOperation?.finished == true) {
-      getLevelProgressionOperation = GetLevelProgressionOperation(apiKey: myKey!, handler: handler)
+      getLevelProgressionOperation = GetLevelProgressionOperation(apiKey: apiKey, handler: handler)
       getLevelProgressionOperation?.userInitiated = true
       operationQueue.addOperation(getLevelProgressionOperation!)
     }
   }
   
   public func apiKey() -> String? {
+    if myKey == nil {
+      delegate?.apiKeyWasUsedBeforeItWasSet()
+    }
     return myKey
   }
   
