@@ -28,7 +28,11 @@ public protocol WaniApiManagerDelegate: class {
   func apiKeyWasUsedBeforeItWasSet()
 }
 
-public class WaniApiManager: NSObject {
+public struct WaniApiManager {
+  
+  public init() {
+    
+  }
   
   public weak var delegate: WaniApiManagerDelegate?
   
@@ -40,19 +44,13 @@ public class WaniApiManager: NSObject {
     return q
   }()
   
-  // MARK: - Singltone
-  
-  public static func sharedInstance() -> WaniApiManager {
-    return instance
-  }
-  
   // MARK: - Public API
   
-  public func setApiKey(key: String?) {
+  public mutating func setApiKey(key: String?) {
     myKey = key
   }
   
-  public func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
+  public mutating func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
     guard let apiKey = apiKey() else {
       return
     }
@@ -64,7 +62,7 @@ public class WaniApiManager: NSObject {
     }
   }
   
-  public func fetchLevelProgression(handler: LevelProgressionRecieveBlock) {
+  public mutating func fetchLevelProgression(handler: LevelProgressionRecieveBlock) {
     guard let apiKey = apiKey() else {
       return
     }
@@ -84,13 +82,6 @@ public class WaniApiManager: NSObject {
   }
   
   // MARK: Private
-  
-  private static let instance = WaniApiManager()
   private var myKey: String?
-  
-  
-  private override init() {
-    super.init()
-  }
   
 }

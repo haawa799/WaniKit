@@ -16,14 +16,15 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-    WaniApiManager.sharedInstance().setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+    var manager = WaniApiManager()
+    manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
     
-    WaniApiManager.sharedInstance().fetchStudyQueue({ (userInfo, studyQInfo) -> Void in
+    manager.fetchStudyQueue({ (userInfo, studyQInfo) -> Void in
       print("userInfo: \(userInfo)")
       print("studyQInfo: \(studyQInfo)")
     })
     
-    WaniApiManager.sharedInstance().fetchLevelProgression({ (userInfo, levelProgression) -> Void in
+    manager.fetchLevelProgression({ (userInfo, levelProgression) -> Void in
       print("userInfo: \(userInfo)")
       print("levelProgression: \(levelProgression)")
     })
