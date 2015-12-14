@@ -38,6 +38,7 @@ public struct WaniApiManager {
   
   public private(set) var getStudyQueueOperation: GetStudyQueueOperation?
   public private(set) var getLevelProgressionOperation: GetLevelProgressionOperation?
+  public private(set) var getUserInfoOperation: GetUserInfoOperation?
   public private(set) var operationQueue: OperationQueue = {
     let q = OperationQueue()
     q.maxConcurrentOperationCount = 1
@@ -70,6 +71,18 @@ public struct WaniApiManager {
     if (getLevelProgressionOperation == nil) || (getLevelProgressionOperation?.finished == true) {
       getLevelProgressionOperation = GetLevelProgressionOperation(apiKey: apiKey, handler: handler)
       getLevelProgressionOperation?.userInitiated = true
+      operationQueue.addOperation(getLevelProgressionOperation!)
+    }
+  }
+  
+  public mutating func fetchUserInfo(handler: UserInfoRecieveBlock) {
+    guard let apiKey = apiKey() else {
+      return
+    }
+    
+    if (getUserInfoOperation == nil) || (getUserInfoOperation?.finished == true) {
+      getUserInfoOperation = GetUserInfoOperation(apiKey: apiKey, handler: handler)
+      getUserInfoOperation?.userInitiated = true
       operationQueue.addOperation(getLevelProgressionOperation!)
     }
   }
