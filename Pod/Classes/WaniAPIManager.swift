@@ -26,6 +26,7 @@ public enum WaniApiError: ErrorType {
 
 public protocol WaniApiManagerDelegate: class {
   func apiKeyWasUsedBeforeItWasSet()
+  func apiKeyWasSet()
 }
 
 public struct WaniApiManager {
@@ -49,6 +50,9 @@ public struct WaniApiManager {
   
   public mutating func setApiKey(key: String?) {
     myKey = key
+    if key != nil {
+      delegate?.apiKeyWasSet()
+    }
   }
   
   public mutating func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
