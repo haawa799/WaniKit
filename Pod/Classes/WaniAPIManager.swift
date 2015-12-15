@@ -29,7 +29,7 @@ public protocol WaniApiManagerDelegate: class {
   func apiKeyWasSet()
 }
 
-public struct WaniApiManager {
+public class WaniApiManager {
   
   public init() {
     
@@ -48,14 +48,14 @@ public struct WaniApiManager {
   
   // MARK: - Public API
   
-  public mutating func setApiKey(key: String?) {
+  public func setApiKey(key: String?) {
     myKey = key
     if key != nil {
       delegate?.apiKeyWasSet()
     }
   }
   
-  public mutating func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
+  public func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
     guard let apiKey = apiKey() else {
       return
     }
@@ -67,7 +67,7 @@ public struct WaniApiManager {
     }
   }
   
-  public mutating func fetchLevelProgression(handler: LevelProgressionRecieveBlock) {
+  public func fetchLevelProgression(handler: LevelProgressionRecieveBlock) {
     guard let apiKey = apiKey() else {
       return
     }
@@ -79,7 +79,7 @@ public struct WaniApiManager {
     }
   }
   
-  public mutating func fetchUserInfo(handler: UserInfoRecieveBlock) {
+  public func fetchUserInfo(handler: UserInfoRecieveBlock) {
     guard let apiKey = apiKey() else {
       return
     }
@@ -87,7 +87,7 @@ public struct WaniApiManager {
     if (getUserInfoOperation == nil) || (getUserInfoOperation?.finished == true) {
       getUserInfoOperation = GetUserInfoOperation(apiKey: apiKey, handler: handler)
       getUserInfoOperation?.userInitiated = true
-      operationQueue.addOperation(getLevelProgressionOperation!)
+      operationQueue.addOperation(getUserInfoOperation!)
     }
   }
   

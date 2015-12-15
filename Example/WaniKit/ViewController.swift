@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-    var manager = WaniApiManager()
+    let manager = WaniApiManager()
     manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
     
     manager.fetchStudyQueue({ (userInfo, studyQInfo) -> Void in
