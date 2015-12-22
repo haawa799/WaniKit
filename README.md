@@ -1,9 +1,9 @@
 # WaniKit
 
-[![CI Status](http://img.shields.io/travis/Andriy K./WaniKit.svg?style=flat)](https://travis-ci.org/Andriy K./WaniKit)
-[![Version](https://img.shields.io/cocoapods/v/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
-[![License](https://img.shields.io/cocoapods/l/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
-[![Platform](https://img.shields.io/cocoapods/p/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
+[![Build Status](https://www.bitrise.io/app/386c5c6c93c06b78.svg?token=zIIsf5cmxfwYZ9SgVhG8Sw&branch=master)](https://www.bitrise.io/app/386c5c6c93c06b78)
+![![Version](https://img.shields.io/cocoapods/v/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
+![![License](https://img.shields.io/cocoapods/l/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
+![![Platform](https://img.shields.io/cocoapods/p/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
 
 ## Usage
 
