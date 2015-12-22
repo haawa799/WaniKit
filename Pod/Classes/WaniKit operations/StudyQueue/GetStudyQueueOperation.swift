@@ -16,7 +16,7 @@ public class GetStudyQueueOperation: GroupOperation {
   init(baseURL: String, handler: StudyQueueRecieveBlock) {
     
     let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("studyQueue.json")
+    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(NSUUID().UUIDString)_studyQueue.json")
     
     
     let url = NSURL(string: "\(baseURL)study-queue")!

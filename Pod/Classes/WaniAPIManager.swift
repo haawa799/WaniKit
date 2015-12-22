@@ -33,11 +33,13 @@ public class WaniApiManager {
   
   public var baseURL: String? {
     
-    guard let apiKey = apiKey() else { return nil }
+    guard let apiKey = apiKey() else {
+      return nil
+    }
     return testBaseURL ?? "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)/"
   }
   
-  private var testBaseURL: String?
+  internal var testBaseURL: String?
   
   public init(testBaseURL: String? = nil) {
     self.testBaseURL = testBaseURL

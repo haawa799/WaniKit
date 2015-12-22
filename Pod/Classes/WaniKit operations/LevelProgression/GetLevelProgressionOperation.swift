@@ -16,7 +16,7 @@ public class GetLevelProgressionOperation: GroupOperation {
   init(baseURL: String, handler: LevelProgressionRecieveBlock) {
     
     let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("levelProgress.json")
+    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(NSUUID().UUIDString)_levelProgress.json")
     
     
     let url = NSURL(string: "\(baseURL)level-progression")!
