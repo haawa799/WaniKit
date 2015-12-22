@@ -2,7 +2,7 @@
 
 import Quick
 import Nimble
-@testable import WaniKit
+import WaniKit
 
 struct Endpoint {
   static let Zero = "http://46.101.192.194:3000/0_"

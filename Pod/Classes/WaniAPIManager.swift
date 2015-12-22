@@ -39,7 +39,7 @@ public class WaniApiManager {
     return testBaseURL ?? "\(WaniKitConstants.URL.BaseURL)/user/\(apiKey)/"
   }
   
-  internal var testBaseURL: String?
+  private var testBaseURL: String?
   
   public init(testBaseURL: String? = nil) {
     self.testBaseURL = testBaseURL
