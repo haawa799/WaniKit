@@ -29,6 +29,10 @@ class ViewController: UIViewController {
       print("levelProgression: \(levelProgression)")
     })
     
+    manager.fetchUserInfo { (userInfo) -> Void in
+      print("userInfo: \(userInfo)")
+    }
+    
   }
 }
 
