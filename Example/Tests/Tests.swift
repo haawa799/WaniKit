@@ -11,6 +11,7 @@ struct Endpoint {
 }
 
 let doneText = "done"
+let testAPIKey = "69b9b1f682946cbc42d251f41f2863d7"
 
 class StudyQueueSpec: QuickSpec {
   override func spec() {
@@ -19,7 +20,7 @@ class StudyQueueSpec: QuickSpec {
     
     describe("Test version #0 Study Q") { () -> () in
       let manager = WaniApiManager(testBaseURL: Endpoint.Zero)
-      manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+      manager.setApiKey(testAPIKey)
       
       var user: UserInfo!
       var studyQueue: StudyQueueInfo!
@@ -54,7 +55,7 @@ class StudyQueueSpec: QuickSpec {
     
     describe("Test version #1 Study Q") { () -> () in
       let manager = WaniApiManager(testBaseURL: Endpoint.One)
-      manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+      manager.setApiKey(testAPIKey)
       
       var user: UserInfo!
       var studyQueue: StudyQueueInfo!
@@ -89,7 +90,7 @@ class StudyQueueSpec: QuickSpec {
     
     describe("Test version #3 Study Q") { () -> () in
       let manager = WaniApiManager(testBaseURL: Endpoint.Two)
-      manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+      manager.setApiKey(testAPIKey)
       
       var user: UserInfo!
       var studyQueue: StudyQueueInfo!
@@ -134,7 +135,7 @@ class LevelProgressionSpec: QuickSpec {
     
     describe("Test version #0 Level Progression") { () -> () in
       let manager = WaniApiManager(testBaseURL: Endpoint.Zero)
-      manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+      manager.setApiKey(testAPIKey)
       
       var user: UserInfo!
       var levelProgress: LevelProgressionInfo!
@@ -170,7 +171,7 @@ class LevelProgressionSpec: QuickSpec {
     
     describe("Test version #1 Level Progression") { () -> () in
       let manager = WaniApiManager(testBaseURL: Endpoint.One)
-      manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+      manager.setApiKey(testAPIKey)
       
       var user: UserInfo!
       var levelProgress: LevelProgressionInfo!
@@ -205,7 +206,7 @@ class LevelProgressionSpec: QuickSpec {
     
     describe("Test version #2 Level Progression") { () -> () in
       let manager = WaniApiManager(testBaseURL: Endpoint.Two)
-      manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+      manager.setApiKey(testAPIKey)
       
       var user: UserInfo!
       var levelProgress: LevelProgressionInfo!
@@ -249,7 +250,7 @@ class RapidFireSpec: QuickSpec {
     
     describe("v0 Study Queue") { () -> () in
       let manager = WaniApiManager(testBaseURL: Endpoint.Zero)
-      manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
+      manager.setApiKey(testAPIKey)
       
       var results = [Int]()
       
