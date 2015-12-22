@@ -1,25 +1,22 @@
 {
   "name": "WaniKit",
+  "homepage": "https://github.com/haawa799/WaniKit/tree/master",
   "version": "0.1.0",
-  "summary": "A short description of WaniKit.",
-  "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/WaniKit",
-  "license": "MIT",
+  "summary": "Swift wrapper for WaniKani.com API",
+  "license": {
+    "type": "MIT"
+  },
   "authors": {
-    "Andriy K.": "haawaplus@gmail.com"
+    "Andriy Kharchyshyn": "haawaplus@gmail.com"
   },
-  "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/WaniKit.git",
-    "tag": "0.1.0"
-  },
+  "screenshots": "http://cl.ly/372F1I0C252D",
+  "requires_arc": true,
   "platforms": {
     "ios": "8.0"
   },
-  "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "resource_bundles": {
-    "WaniKit": [
-      "Pod/Assets/*.png"
-    ]
-  }
+  "source": {
+    "git": "https://github.com/haawa799/WaniKit",
+    "tag": "v0.1.0"
+  },
+  "source_files": "Pod/Classes/**/*"
 }
