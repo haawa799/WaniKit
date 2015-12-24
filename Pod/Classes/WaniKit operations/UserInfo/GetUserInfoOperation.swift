@@ -20,7 +20,7 @@ public class GetUserInfoOperation: GroupOperation {
     let cacheFile = cachesFolder.URLByAppendingPathComponent("\(NSUUID().UUIDString)/userInfo.json")
     
     
-    let url = NSURL(string: "\(baseURL)user-information")!
+    let url = NSURL(string: "\(baseURL)/user-information")!
     downloadOperation = DownloadUserInfoOperation(url: url, cacheFile: cacheFile)
     parseOperation = ParseUserInfoOperation(cacheFile: cacheFile, handler: handler)
     parseOperation.addDependency(downloadOperation)

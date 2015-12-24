@@ -5,10 +5,11 @@ import Nimble
 import WaniKit
 
 struct Endpoint {
-  static let Zero = "http://46.101.192.194:3000/0_"
-  static let One = "http://46.101.192.194:3000/1_"
-  static let Two = "http://46.101.192.194:3000/2_"
+  static let Zero = "http://haawa.org/test/wanikani/0"
+  static let One = "http://haawa.org/test/wanikani/1"
+  static let Two = "http://haawa.org/test/wanikani/2"
 }
+
 
 let doneText = "done"
 let testAPIKey = "69b9b1f682946cbc42d251f41f2863d7"

@@ -14,6 +14,7 @@ public class DownloadOperation: GroupOperation {
   
   init(url: NSURL, cacheFile: NSURL) {
     
+    print(url)
     self.cacheFile = cacheFile
     
     super.init(operations: [])

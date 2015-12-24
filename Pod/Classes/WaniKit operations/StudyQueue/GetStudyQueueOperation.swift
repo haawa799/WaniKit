@@ -19,7 +19,7 @@ public class GetStudyQueueOperation: GroupOperation {
     let cacheFile = cachesFolder.URLByAppendingPathComponent("\(NSUUID().UUIDString)_studyQueue.json")
     
     
-    let url = NSURL(string: "\(baseURL)study-queue")!
+    let url = NSURL(string: "\(baseURL)/study-queue")!
     downloadOperation = DownloadStudyQueueOperation(url: url, cacheFile: cacheFile)
     parseOperation = ParseStudyQueueOperation(cacheFile: cacheFile, handler: handler)
     parseOperation.addDependency(downloadOperation)

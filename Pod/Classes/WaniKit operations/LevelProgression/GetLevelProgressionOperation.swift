@@ -19,7 +19,7 @@ public class GetLevelProgressionOperation: GroupOperation {
     let cacheFile = cachesFolder.URLByAppendingPathComponent("\(NSUUID().UUIDString)_levelProgress.json")
     
     
-    let url = NSURL(string: "\(baseURL)level-progression")!
+    let url = NSURL(string: "\(baseURL)/level-progression")!
     downloadOperation = DownloadLevelProgressionOperation(url: url, cacheFile: cacheFile)
     parseOperation = ParseLevelProgressionOperation(cacheFile: cacheFile, handler: handler)
     parseOperation.addDependency(downloadOperation)
