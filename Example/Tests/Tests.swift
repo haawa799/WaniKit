@@ -154,7 +154,7 @@ class LevelProgressionSpec: QuickSpec {
         waitUntil(timeout: 2.5, action: { (done) -> Void in
           NSThread.sleepForTimeInterval(2.0)
           expect(time) == doneText
-          expect(user.level) == 11
+          expect(user.level) == 10
           expect(user.username) == "haawa"
           expect(user.postsCount) == 56
           expect(user.topicsCount) == 2
