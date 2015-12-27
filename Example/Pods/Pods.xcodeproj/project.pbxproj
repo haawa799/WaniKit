@@ -41,6 +41,11 @@
 		3F4E6E553D73B065784D099190FAFA62 /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260740B4E39A51279114A2355471A89 /* GroupOperation.swift */; };
 		41F59D3E758CCE5DA749E1CE6AB78E69 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCB252E934222DCCFD7BDA27DA640 /* ExclusivityController.swift */; };
 		4299E2F6635460E4867E079264038032 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = D4E0D7E2D11371A45CB3D1221E7B4EC2 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43B274FF1C30366D00FE9084 /* DownloadKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */; };
+		43B275001C30366D00FE9084 /* GetKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */; };
+		43B275011C30366D00FE9084 /* ParseKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */; };
+		43B275031C30391D00FE9084 /* KanjiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B275021C30391D00FE9084 /* KanjiInfo.swift */; };
+		43F4F4081C305AF2001E80A1 /* ParseOpertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F4F4071C305AF2001E80A1 /* ParseOpertion.swift */; };
 		45A668A7AECB53B3AB705C32DEF74E2A /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF695047E0AAFB3CA54EC10F0E97FD3 /* Configuration.swift */; };
 		4A53411C12E0C13AB4CD61A51E719817 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E351727CD07BB90B2A3CAE2C2433F6C5 /* Foundation.framework */; };
 		4AA1E410877DFEEF8A9F3306EF1C0DFD /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F9F52802EA850AE3E44685E25C595E /* UserInfo.swift */; };
@@ -217,6 +222,11 @@
 		3F1975D001BFB447009180BAF8C14ADB /* Quick-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Quick-prefix.pch"; sourceTree = "<group>"; };
 		3FF9446995992CCC3A7F62BFD82D2C90 /* DownloadOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
 		40FBD52025077E5788ADCE71EF040393 /* NMBExceptionCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMBExceptionCapture.h; path = Nimble/objc/NMBExceptionCapture.h; sourceTree = "<group>"; };
+		43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadKanjiListOperation.swift; sourceTree = "<group>"; };
+		43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKanjiListOperation.swift; sourceTree = "<group>"; };
+		43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseKanjiListOperation.swift; sourceTree = "<group>"; };
+		43B275021C30391D00FE9084 /* KanjiInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiInfo.swift; sourceTree = "<group>"; };
+		43F4F4071C305AF2001E80A1 /* ParseOpertion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOpertion.swift; sourceTree = "<group>"; };
 		44E0D2957CC75D8BDC2E37328FEA9DD3 /* WaniAPIManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WaniAPIManager.swift; sourceTree = "<group>"; };
 		4930275AC98E3FD0F3BC81A7D08B8591 /* SourceLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceLocation.swift; path = Nimble/Utils/SourceLocation.swift; sourceTree = "<group>"; };
 		4B6B6802AEE46D24F50FAD997833FF30 /* ParseLevelProgressionOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ParseLevelProgressionOperation.swift; sourceTree = "<group>"; };
@@ -455,12 +465,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		43B274FB1C30366D00FE9084 /* KanjiList */ = {
+			isa = PBXGroup;
+			children = (
+				43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */,
+				43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */,
+				43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */,
+			);
+			path = KanjiList;
+			sourceTree = "<group>";
+		};
 		43FE2FA9429F777935696C1CC39BB16F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1DE6FED46AEE2F29387EF3A240B7D41C /* LevelProgressionInfo.swift */,
 				1AF980478327825462682C5EE4834BD9 /* StudyQueueInfo.swift */,
 				73F9F52802EA850AE3E44685E25C595E /* UserInfo.swift */,
+				43B275021C30391D00FE9084 /* KanjiInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -639,6 +660,8 @@
 			isa = PBXGroup;
 			children = (
 				3FF9446995992CCC3A7F62BFD82D2C90 /* DownloadOperation.swift */,
+				43F4F4071C305AF2001E80A1 /* ParseOpertion.swift */,
+				43B274FB1C30366D00FE9084 /* KanjiList */,
 				CEF2C76BFE461547DAEEE915E296BB07 /* LevelProgression */,
 				760934281968311EDC29F0B2FC406D1E /* StudyQueue */,
 				339E0F6722F3E33E05F0AFB89237C713 /* UserInfo */,
@@ -1025,7 +1048,9 @@
 			files = (
 				6E46792DA16780E876D1224560A4C962 /* BlockObserver.swift in Sources */,
 				0E8434F8AF2DCB73C1442660378CA0CE /* BlockOperation.swift in Sources */,
+				43B274FF1C30366D00FE9084 /* DownloadKanjiListOperation.swift in Sources */,
 				101B1FC447B5BA4EDEC36BEBD8571C64 /* CalendarCondition.swift in Sources */,
+				43B275001C30366D00FE9084 /* GetKanjiListOperation.swift in Sources */,
 				9334EE5E3B9F1D9F3741562ADAB9D840 /* CKContainer+Operations.swift in Sources */,
 				64E7E8D08F3EE3E8BEA0D1DB53EB3792 /* CloudCondition.swift in Sources */,
 				1A83270F61AFD5DEE605329E126905A0 /* DelayOperation.swift in Sources */,
@@ -1033,6 +1058,7 @@
 				E142E5BA0CEBCF7D3CF55CB115E3F662 /* DictionaryConvertable.swift in Sources */,
 				2148BC065F15A2D683DF6E7B1BDB4767 /* DownloadLevelProgressionOperation.swift in Sources */,
 				391B860F90048513ADF3CC1B25C9B2DB /* DownloadOperation.swift in Sources */,
+				43F4F4081C305AF2001E80A1 /* ParseOpertion.swift in Sources */,
 				38B7A3812EFC77B05B1B64679F970196 /* DownloadStudyQueueOperation.swift in Sources */,
 				0B3455F27171D0E9D5D8D96E64FDE368 /* DownloadUserInfoOperation.swift in Sources */,
 				41F59D3E758CCE5DA749E1CE6AB78E69 /* ExclusivityController.swift in Sources */,
@@ -1044,6 +1070,7 @@
 				8315406B77A6DFD67C4E66155CE8EE87 /* LevelProgressionInfo.swift in Sources */,
 				7504E2F05E3467BA3DCCB6A9E5763479 /* LocationCondition.swift in Sources */,
 				F0736C6F5C2898140F1A89EA2C57C1CF /* LocationOperation.swift in Sources */,
+				43B275031C30391D00FE9084 /* KanjiInfo.swift in Sources */,
 				B4E46CFEF53DD857E1F769E3BB0071B7 /* MutuallyExclusive.swift in Sources */,
 				2768656BC986C8CE1E95C1BDCD033F8D /* NegatedCondition.swift in Sources */,
 				53E688D0BDE79B390770A872574FB62F /* NetworkObserver.swift in Sources */,
@@ -1055,6 +1082,7 @@
 				CDFCA31C55B3D5A445DD01E09D7750D1 /* OperationErrors.swift in Sources */,
 				516A980D9B1BFE35F0B935D2E24DD0A2 /* OperationObserver.swift in Sources */,
 				FC605C35F15A2E35AE1628381DDFD54A /* OperationQueue.swift in Sources */,
+				43B275011C30366D00FE9084 /* ParseKanjiListOperation.swift in Sources */,
 				B17DBF53B8AC00371213F891A4FE6B0C /* ParseLevelProgressionOperation.swift in Sources */,
 				CD726298EBA9BFD11E7E6DAD27DF75DF /* ParseStudyQueueOperation.swift in Sources */,
 				0F729EBB3BA1E8B7056A3038C71A580A /* ParseUserInfoOperation.swift in Sources */,

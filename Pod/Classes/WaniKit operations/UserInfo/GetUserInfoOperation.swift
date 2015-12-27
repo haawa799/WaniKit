@@ -14,10 +14,10 @@ public class GetUserInfoOperation: GroupOperation {
   let downloadOperation: DownloadUserInfoOperation
   let parseOperation: ParseUserInfoOperation
   
-  init(baseURL: String, handler: UserInfoRecieveBlock) {
+  init(baseURL: String, cacheFilePrefix: String?, handler: UserInfoResponseHandler) {
     
     let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(NSUUID().UUIDString)/userInfo.json")
+    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(cacheFilePrefix)_userInfo.json")
     
     
     let url = NSURL(string: "\(baseURL)/user-information")!

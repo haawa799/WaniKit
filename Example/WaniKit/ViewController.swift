@@ -19,18 +19,63 @@ class ViewController: UIViewController {
     let manager = WaniApiManager()
     manager.setApiKey("69b9b1f682946cbc42d251f41f2863d7")
     
-    manager.fetchStudyQueue({ (userInfo, studyQInfo) -> Void in
-      print("userInfo: \(userInfo)")
-      print("studyQInfo: \(studyQInfo)")
-    })
+//    manager.fetchStudyQueue { (result) -> Void in
+//      switch result {
+//      case .Error(let error):
+//        print(error())
+//      case .Response(let response):
+//        let resp = response()
+//        if let userInfo = resp.userInfo {
+//          print("userInfo: \(userInfo)")
+//        }
+//        if let studyQueue = resp.studyQInfo {
+//          print("studyQueue: \(studyQueue)")
+//        }
+//      }
+//    }
+//    
+//    manager.fetchLevelProgression { (result) -> Void in
+//      switch result {
+//      case .Error(let error):
+//        print(error())
+//      case .Response(let response):
+//        let resp = response()
+//        if let userInfo = resp.userInfo {
+//          print("userInfo: \(userInfo)")
+//        }
+//        if let levelProgress = resp.levelProgression {
+//          print("levelProgress: \(levelProgress)")
+//        }
+//      }
+//    }
+//    
+//    manager.fetchUserInfo { (result) -> Void in
+//      switch result {
+//        case .Error(let error):
+//          print(error())
+//          //handle error
+//        case .Response(let response):
+//          if let userInfo = response() {
+//            print("userInfo: \(userInfo)")
+//          }
+//          //handle response
+//      }
+//    }
     
-    manager.fetchLevelProgression({ (userInfo, levelProgression) -> Void in
-      print("userInfo: \(userInfo)")
-      print("levelProgression: \(levelProgression)")
-    })
-    
-    manager.fetchUserInfo { (userInfo) -> Void in
-      print("userInfo: \(userInfo)")
+    manager.fetchKanjiList(1) { (result) -> Void in
+      switch result {
+      case .Error(let error):
+        print(error())
+        //handle error
+      case .Response(let response):
+        let resp = response()
+        if let userInfo = resp.userInfo {
+          print("userInfo: \(userInfo)")
+        }
+        if let kanji = resp.kanji {
+          print("kanji: \(kanji)")
+        }
+      }
     }
     
   }

@@ -30,9 +30,19 @@ class StudyQueueSpec: QuickSpec {
       
       it("Response is correct", closure: { () -> () in
         
-        manager.fetchStudyQueue({ (userInfo, studyQInfo) -> Void in
-          studyQueue = studyQInfo
-          user = userInfo
+        manager.fetchStudyQueue({ result -> Void in
+          switch result {
+          case .Error(let error):
+            print(error())
+          case .Response(let response):
+            let resp = response()
+            if let userInfo = resp.userInfo {
+              user = userInfo
+            }
+            if let studyQueueInfo = resp.studyQInfo {
+              studyQueue = studyQueueInfo
+            }
+          }
           time = doneText
         })
         
@@ -63,9 +73,19 @@ class StudyQueueSpec: QuickSpec {
       
       var time = "passing"
       
-      manager.fetchStudyQueue({ (userInfo, studyQInfo) -> Void in
-        studyQueue = studyQInfo
-        user = userInfo
+      manager.fetchStudyQueue({ (result) -> Void in
+        switch result {
+        case .Error(let error):
+          print(error())
+        case .Response(let response):
+          let resp = response()
+          if let userInfo = resp.userInfo {
+            user = userInfo
+          }
+          if let studyQueueInfo = resp.studyQInfo {
+            studyQueue = studyQueueInfo
+          }
+        }
         time = doneText
       })
       
@@ -98,9 +118,19 @@ class StudyQueueSpec: QuickSpec {
       
       var time = "passing"
       
-      manager.fetchStudyQueue({ (userInfo, studyQInfo) -> Void in
-        studyQueue = studyQInfo
-        user = userInfo
+      manager.fetchStudyQueue({ result -> Void in
+        switch result {
+        case .Error(let error):
+          print(error())
+        case .Response(let response):
+          let resp = response()
+          if let userInfo = resp.userInfo {
+            user = userInfo
+          }
+          if let studyQueueInfo = resp.studyQInfo {
+            studyQueue = studyQueueInfo
+          }
+        }
         time = doneText
       })
       
@@ -145,9 +175,19 @@ class LevelProgressionSpec: QuickSpec {
       
       it("Response is correct", closure: { () -> () in
         
-        manager.fetchLevelProgression({ (userInfo, levelProgression) -> Void in
-          levelProgress = levelProgression
-          user = userInfo
+        manager.fetchLevelProgression({ result -> Void in
+          switch result {
+          case .Error(let error):
+            print(error())
+          case .Response(let response):
+            let resp = response()
+            if let userInfo = resp.userInfo {
+              user = userInfo
+            }
+            if let levelProgressInfo = resp.levelProgression {
+              levelProgress = levelProgressInfo
+            }
+          }
           time = doneText
         })
         
@@ -181,9 +221,19 @@ class LevelProgressionSpec: QuickSpec {
       
       it("Response is correct", closure: { () -> () in
         
-        manager.fetchLevelProgression({ (userInfo, levelProgression) -> Void in
-          levelProgress = levelProgression
-          user = userInfo
+        manager.fetchLevelProgression({ result -> Void in
+          switch result {
+          case .Error(let error):
+            print(error())
+          case .Response(let response):
+            let resp = response()
+            if let userInfo = resp.userInfo {
+              user = userInfo
+            }
+            if let levelProgressInfo = resp.levelProgression {
+              levelProgress = levelProgressInfo
+            }
+          }
           time = doneText
         })
         
@@ -216,9 +266,19 @@ class LevelProgressionSpec: QuickSpec {
       
       it("Response is correct", closure: { () -> () in
         
-        manager.fetchLevelProgression({ (userInfo, levelProgression) -> Void in
-          levelProgress = levelProgression
-          user = userInfo
+        manager.fetchLevelProgression({ result -> Void in
+          switch result {
+          case .Error(let error):
+            print(error())
+          case .Response(let response):
+            let resp = response()
+            if let userInfo = resp.userInfo {
+              user = userInfo
+            }
+            if let levelProgressInfo = resp.levelProgression {
+              levelProgress = levelProgressInfo
+            }
+          }
           time = doneText
         })
         

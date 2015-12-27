@@ -13,10 +13,10 @@ public class GetStudyQueueOperation: GroupOperation {
   let downloadOperation: DownloadStudyQueueOperation
   let parseOperation: ParseStudyQueueOperation
   
-  init(baseURL: String, handler: StudyQueueRecieveBlock) {
+  init(baseURL: String, cacheFilePrefix: String?, handler: StudyQueueRecieveBlock) {
     
     let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(NSUUID().UUIDString)_studyQueue.json")
+    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(cacheFilePrefix)_studyQueue.json")
     
     
     let url = NSURL(string: "\(baseURL)/study-queue")!
