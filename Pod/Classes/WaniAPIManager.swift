@@ -52,6 +52,7 @@ public class WaniApiManager {
   public private(set) var getLevelProgressionOperation: GetLevelProgressionOperation?
   public private(set) var getUserInfoOperation: GetUserInfoOperation?
   public private(set) var getKanjiListOperation: GetKanjiListOperation?
+  public private(set) var getRadicalsListOperation: GetRadicalsListOperation?
   public private(set) var operationQueue: OperationQueue = {
     let q = OperationQueue()
     q.maxConcurrentOperationCount = 1
@@ -112,6 +113,18 @@ public class WaniApiManager {
       getKanjiListOperation = GetKanjiListOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
       getKanjiListOperation?.userInitiated = true
       operationQueue.addOperation(getKanjiListOperation!)
+    }
+  }
+  
+  public func fetchRadicalsList(level: Int, handler: RadicalsListResponseHandler) {
+    guard let baseURL = baseURL else {
+      return
+    }
+    
+    if (getRadicalsListOperation == nil) || (getRadicalsListOperation?.finished == true) {
+      getRadicalsListOperation = GetRadicalsListOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
+      getRadicalsListOperation?.userInitiated = true
+      operationQueue.addOperation(getRadicalsListOperation!)
     }
   }
   

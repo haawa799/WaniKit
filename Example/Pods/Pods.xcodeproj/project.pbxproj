@@ -41,6 +41,10 @@
 		3F4E6E553D73B065784D099190FAFA62 /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260740B4E39A51279114A2355471A89 /* GroupOperation.swift */; };
 		41F59D3E758CCE5DA749E1CE6AB78E69 /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 714FCB252E934222DCCFD7BDA27DA640 /* ExclusivityController.swift */; };
 		4299E2F6635460E4867E079264038032 /* Quick.h in Headers */ = {isa = PBXBuildFile; fileRef = D4E0D7E2D11371A45CB3D1221E7B4EC2 /* Quick.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43A6676E1C7218FC0072614B /* RadicalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6676C1C7215FE0072614B /* RadicalInfo.swift */; };
+		43A667731C721C090072614B /* DownloadRadicalsListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667701C721C090072614B /* DownloadRadicalsListOperation.swift */; };
+		43A667741C721C090072614B /* GetRadicalsListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667711C721C090072614B /* GetRadicalsListOperation.swift */; };
+		43A667751C721C090072614B /* ParseRadicalsListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667721C721C090072614B /* ParseRadicalsListOperation.swift */; };
 		43B274FF1C30366D00FE9084 /* DownloadKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */; };
 		43B275001C30366D00FE9084 /* GetKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */; };
 		43B275011C30366D00FE9084 /* ParseKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */; };
@@ -222,6 +226,10 @@
 		3F1975D001BFB447009180BAF8C14ADB /* Quick-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Quick-prefix.pch"; sourceTree = "<group>"; };
 		3FF9446995992CCC3A7F62BFD82D2C90 /* DownloadOperation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DownloadOperation.swift; sourceTree = "<group>"; };
 		40FBD52025077E5788ADCE71EF040393 /* NMBExceptionCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMBExceptionCapture.h; path = Nimble/objc/NMBExceptionCapture.h; sourceTree = "<group>"; };
+		43A6676C1C7215FE0072614B /* RadicalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadicalInfo.swift; sourceTree = "<group>"; };
+		43A667701C721C090072614B /* DownloadRadicalsListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRadicalsListOperation.swift; sourceTree = "<group>"; };
+		43A667711C721C090072614B /* GetRadicalsListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRadicalsListOperation.swift; sourceTree = "<group>"; };
+		43A667721C721C090072614B /* ParseRadicalsListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRadicalsListOperation.swift; sourceTree = "<group>"; };
 		43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadKanjiListOperation.swift; sourceTree = "<group>"; };
 		43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKanjiListOperation.swift; sourceTree = "<group>"; };
 		43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseKanjiListOperation.swift; sourceTree = "<group>"; };
@@ -465,6 +473,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		43A6676F1C721BBD0072614B /* RadicalsList */ = {
+			isa = PBXGroup;
+			children = (
+				43A667701C721C090072614B /* DownloadRadicalsListOperation.swift */,
+				43A667711C721C090072614B /* GetRadicalsListOperation.swift */,
+				43A667721C721C090072614B /* ParseRadicalsListOperation.swift */,
+			);
+			path = RadicalsList;
+			sourceTree = "<group>";
+		};
 		43B274FB1C30366D00FE9084 /* KanjiList */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +500,7 @@
 				1AF980478327825462682C5EE4834BD9 /* StudyQueueInfo.swift */,
 				73F9F52802EA850AE3E44685E25C595E /* UserInfo.swift */,
 				43B275021C30391D00FE9084 /* KanjiInfo.swift */,
+				43A6676C1C7215FE0072614B /* RadicalInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -661,6 +680,7 @@
 			children = (
 				3FF9446995992CCC3A7F62BFD82D2C90 /* DownloadOperation.swift */,
 				43F4F4071C305AF2001E80A1 /* ParseOpertion.swift */,
+				43A6676F1C721BBD0072614B /* RadicalsList */,
 				43B274FB1C30366D00FE9084 /* KanjiList */,
 				CEF2C76BFE461547DAEEE915E296BB07 /* LevelProgression */,
 				760934281968311EDC29F0B2FC406D1E /* StudyQueue */,
@@ -1063,6 +1083,7 @@
 				0B3455F27171D0E9D5D8D96E64FDE368 /* DownloadUserInfoOperation.swift in Sources */,
 				41F59D3E758CCE5DA749E1CE6AB78E69 /* ExclusivityController.swift in Sources */,
 				B6DB13D09BA578060359D9BA23E48037 /* GetLevelProgressionOperation.swift in Sources */,
+				43A667741C721C090072614B /* GetRadicalsListOperation.swift in Sources */,
 				6437C235183A1442E7C4FC71008411E7 /* GetStudyQueueOperation.swift in Sources */,
 				FDC1F7B0EB9008B60E204A6CF067973C /* GetUserInfoOperation.swift in Sources */,
 				3F4E6E553D73B065784D099190FAFA62 /* GroupOperation.swift in Sources */,
@@ -1082,12 +1103,14 @@
 				CDFCA31C55B3D5A445DD01E09D7750D1 /* OperationErrors.swift in Sources */,
 				516A980D9B1BFE35F0B935D2E24DD0A2 /* OperationObserver.swift in Sources */,
 				FC605C35F15A2E35AE1628381DDFD54A /* OperationQueue.swift in Sources */,
+				43A667731C721C090072614B /* DownloadRadicalsListOperation.swift in Sources */,
 				43B275011C30366D00FE9084 /* ParseKanjiListOperation.swift in Sources */,
 				B17DBF53B8AC00371213F891A4FE6B0C /* ParseLevelProgressionOperation.swift in Sources */,
 				CD726298EBA9BFD11E7E6DAD27DF75DF /* ParseStudyQueueOperation.swift in Sources */,
 				0F729EBB3BA1E8B7056A3038C71A580A /* ParseUserInfoOperation.swift in Sources */,
 				DAB646A11BF75293EB96BC5BC66DCAB7 /* PassbookCondition.swift in Sources */,
 				8F8C14DF6899CBFA60F1448E80A87089 /* PhotosCondition.swift in Sources */,
+				43A6676E1C7218FC0072614B /* RadicalInfo.swift in Sources */,
 				24D67EA70020E84E3D8357FC80F9FA21 /* ReachabilityCondition.swift in Sources */,
 				7DC053B9E0BAEA701F4A4842FDECBFC9 /* RemoteNotificationCondition.swift in Sources */,
 				A77D7C4EE40051897A8CE50D9C210B7C /* SilentCondition.swift in Sources */,
@@ -1098,6 +1121,7 @@
 				4AA1E410877DFEEF8A9F3306EF1C0DFD /* UserInfo.swift in Sources */,
 				391C6B25161ADDC0182266D6226B2223 /* UserNotificationCondition.swift in Sources */,
 				833EC26CBA1BC7C8085C9A17130A4134 /* WaniAPIManager.swift in Sources */,
+				43A667751C721C090072614B /* ParseRadicalsListOperation.swift in Sources */,
 				39917BEC025BCD606A0F44EC08595C82 /* WaniKit-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -61,8 +61,24 @@ class ViewController: UIViewController {
 //          //handle response
 //      }
 //    }
+//    
+//    manager.fetchKanjiList(1) { (result) -> Void in
+//      switch result {
+//      case .Error(let error):
+//        print(error())
+//        //handle error
+//      case .Response(let response):
+//        let resp = response()
+//        if let userInfo = resp.userInfo {
+//          print("userInfo: \(userInfo)")
+//        }
+//        if let kanji = resp.kanji {
+//          print("kanji: \(kanji)")
+//        }
+//      }
+//    }
     
-    manager.fetchKanjiList(1) { (result) -> Void in
+    manager.fetchRadicalsList(1) { (result) -> Void in
       switch result {
       case .Error(let error):
         print(error())
@@ -72,8 +88,8 @@ class ViewController: UIViewController {
         if let userInfo = resp.userInfo {
           print("userInfo: \(userInfo)")
         }
-        if let kanji = resp.kanji {
-          print("kanji: \(kanji)")
+        if let radicals = resp.radicals {
+          print("radicals: \(radicals.first!)")
         }
       }
     }
