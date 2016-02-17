@@ -45,6 +45,10 @@
 		43A667731C721C090072614B /* DownloadRadicalsListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667701C721C090072614B /* DownloadRadicalsListOperation.swift */; };
 		43A667741C721C090072614B /* GetRadicalsListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667711C721C090072614B /* GetRadicalsListOperation.swift */; };
 		43A667751C721C090072614B /* ParseRadicalsListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667721C721C090072614B /* ParseRadicalsListOperation.swift */; };
+		43A6677F1C7445120072614B /* WordlInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6677E1C7445120072614B /* WordlInfo.swift */; };
+		43A667841C7446510072614B /* DownloadVocabListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667811C7446510072614B /* DownloadVocabListOperation.swift */; };
+		43A667851C7446510072614B /* GetVocabListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667821C7446510072614B /* GetVocabListOperation.swift */; };
+		43A667861C7446510072614B /* ParseVocabListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667831C7446510072614B /* ParseVocabListOperation.swift */; };
 		43B274FF1C30366D00FE9084 /* DownloadKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */; };
 		43B275001C30366D00FE9084 /* GetKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */; };
 		43B275011C30366D00FE9084 /* ParseKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */; };
@@ -230,6 +234,10 @@
 		43A667701C721C090072614B /* DownloadRadicalsListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRadicalsListOperation.swift; sourceTree = "<group>"; };
 		43A667711C721C090072614B /* GetRadicalsListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetRadicalsListOperation.swift; sourceTree = "<group>"; };
 		43A667721C721C090072614B /* ParseRadicalsListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRadicalsListOperation.swift; sourceTree = "<group>"; };
+		43A6677E1C7445120072614B /* WordlInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordlInfo.swift; sourceTree = "<group>"; };
+		43A667811C7446510072614B /* DownloadVocabListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadVocabListOperation.swift; sourceTree = "<group>"; };
+		43A667821C7446510072614B /* GetVocabListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetVocabListOperation.swift; sourceTree = "<group>"; };
+		43A667831C7446510072614B /* ParseVocabListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseVocabListOperation.swift; sourceTree = "<group>"; };
 		43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadKanjiListOperation.swift; sourceTree = "<group>"; };
 		43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKanjiListOperation.swift; sourceTree = "<group>"; };
 		43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseKanjiListOperation.swift; sourceTree = "<group>"; };
@@ -483,6 +491,16 @@
 			path = RadicalsList;
 			sourceTree = "<group>";
 		};
+		43A667801C7446510072614B /* VocabList */ = {
+			isa = PBXGroup;
+			children = (
+				43A667811C7446510072614B /* DownloadVocabListOperation.swift */,
+				43A667821C7446510072614B /* GetVocabListOperation.swift */,
+				43A667831C7446510072614B /* ParseVocabListOperation.swift */,
+			);
+			path = VocabList;
+			sourceTree = "<group>";
+		};
 		43B274FB1C30366D00FE9084 /* KanjiList */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +519,7 @@
 				73F9F52802EA850AE3E44685E25C595E /* UserInfo.swift */,
 				43B275021C30391D00FE9084 /* KanjiInfo.swift */,
 				43A6676C1C7215FE0072614B /* RadicalInfo.swift */,
+				43A6677E1C7445120072614B /* WordlInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -680,6 +699,7 @@
 			children = (
 				3FF9446995992CCC3A7F62BFD82D2C90 /* DownloadOperation.swift */,
 				43F4F4071C305AF2001E80A1 /* ParseOpertion.swift */,
+				43A667801C7446510072614B /* VocabList */,
 				43A6676F1C721BBD0072614B /* RadicalsList */,
 				43B274FB1C30366D00FE9084 /* KanjiList */,
 				CEF2C76BFE461547DAEEE915E296BB07 /* LevelProgression */,
@@ -1072,6 +1092,7 @@
 				101B1FC447B5BA4EDEC36BEBD8571C64 /* CalendarCondition.swift in Sources */,
 				43B275001C30366D00FE9084 /* GetKanjiListOperation.swift in Sources */,
 				9334EE5E3B9F1D9F3741562ADAB9D840 /* CKContainer+Operations.swift in Sources */,
+				43A667851C7446510072614B /* GetVocabListOperation.swift in Sources */,
 				64E7E8D08F3EE3E8BEA0D1DB53EB3792 /* CloudCondition.swift in Sources */,
 				1A83270F61AFD5DEE605329E126905A0 /* DelayOperation.swift in Sources */,
 				021902547E24FF841242C816F12ECEF5 /* Dictionary+Operations.swift in Sources */,
@@ -1108,9 +1129,11 @@
 				B17DBF53B8AC00371213F891A4FE6B0C /* ParseLevelProgressionOperation.swift in Sources */,
 				CD726298EBA9BFD11E7E6DAD27DF75DF /* ParseStudyQueueOperation.swift in Sources */,
 				0F729EBB3BA1E8B7056A3038C71A580A /* ParseUserInfoOperation.swift in Sources */,
+				43A6677F1C7445120072614B /* WordlInfo.swift in Sources */,
 				DAB646A11BF75293EB96BC5BC66DCAB7 /* PassbookCondition.swift in Sources */,
 				8F8C14DF6899CBFA60F1448E80A87089 /* PhotosCondition.swift in Sources */,
 				43A6676E1C7218FC0072614B /* RadicalInfo.swift in Sources */,
+				43A667861C7446510072614B /* ParseVocabListOperation.swift in Sources */,
 				24D67EA70020E84E3D8357FC80F9FA21 /* ReachabilityCondition.swift in Sources */,
 				7DC053B9E0BAEA701F4A4842FDECBFC9 /* RemoteNotificationCondition.swift in Sources */,
 				A77D7C4EE40051897A8CE50D9C210B7C /* SilentCondition.swift in Sources */,
@@ -1118,6 +1141,7 @@
 				60704FBAD040747725BE65298F7FA15A /* TimeoutObserver.swift in Sources */,
 				B10BEA4A57F20D5CBA51A8A3487BF615 /* UIUserNotifications+Operations.swift in Sources */,
 				615C6418D72C91F380026CEEFAF025AE /* URLSessionTaskOperation.swift in Sources */,
+				43A667841C7446510072614B /* DownloadVocabListOperation.swift in Sources */,
 				4AA1E410877DFEEF8A9F3306EF1C0DFD /* UserInfo.swift in Sources */,
 				391C6B25161ADDC0182266D6226B2223 /* UserNotificationCondition.swift in Sources */,
 				833EC26CBA1BC7C8085C9A17130A4134 /* WaniAPIManager.swift in Sources */,

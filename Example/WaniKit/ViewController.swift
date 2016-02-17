@@ -94,6 +94,22 @@ class ViewController: UIViewController {
       }
     }
     
+    manager.fetchVocabList(1) { (result) -> Void in
+      switch result {
+      case .Error(let error):
+        print(error())
+        //handle error
+      case .Response(let response):
+        let resp = response()
+        if let userInfo = resp.userInfo {
+          print("userInfo: \(userInfo)")
+        }
+        if let vocab = resp.vocab {
+          print("vocab: \(vocab)")
+        }
+      }
+    }
+    
   }
 }
 

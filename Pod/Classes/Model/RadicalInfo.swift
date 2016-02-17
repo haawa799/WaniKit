@@ -6,14 +6,6 @@
 //
 //
 
-//
-//  KanjiInfo.swift
-//  Pods
-//
-//  Created by Andriy K. on 12/27/15.
-//
-//
-
 import Foundation
 
 public struct RadicalInfo {
