@@ -49,6 +49,10 @@
 		43A667841C7446510072614B /* DownloadVocabListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667811C7446510072614B /* DownloadVocabListOperation.swift */; };
 		43A667851C7446510072614B /* GetVocabListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667821C7446510072614B /* GetVocabListOperation.swift */; };
 		43A667861C7446510072614B /* ParseVocabListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667831C7446510072614B /* ParseVocabListOperation.swift */; };
+		43A667881C7449A30072614B /* CriticalItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A667871C7449A30072614B /* CriticalItems.swift */; };
+		43A6678D1C744F7F0072614B /* DownloadCriticalItemsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6678A1C744F7F0072614B /* DownloadCriticalItemsOperation.swift */; };
+		43A6678E1C744F7F0072614B /* GetCriticalItemsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6678B1C744F7F0072614B /* GetCriticalItemsOperation.swift */; };
+		43A6678F1C744F7F0072614B /* ParseCriticalItemsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6678C1C744F7F0072614B /* ParseCriticalItemsOperation.swift */; };
 		43B274FF1C30366D00FE9084 /* DownloadKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */; };
 		43B275001C30366D00FE9084 /* GetKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */; };
 		43B275011C30366D00FE9084 /* ParseKanjiListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */; };
@@ -238,6 +242,10 @@
 		43A667811C7446510072614B /* DownloadVocabListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadVocabListOperation.swift; sourceTree = "<group>"; };
 		43A667821C7446510072614B /* GetVocabListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetVocabListOperation.swift; sourceTree = "<group>"; };
 		43A667831C7446510072614B /* ParseVocabListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseVocabListOperation.swift; sourceTree = "<group>"; };
+		43A667871C7449A30072614B /* CriticalItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriticalItems.swift; sourceTree = "<group>"; };
+		43A6678A1C744F7F0072614B /* DownloadCriticalItemsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadCriticalItemsOperation.swift; sourceTree = "<group>"; };
+		43A6678B1C744F7F0072614B /* GetCriticalItemsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCriticalItemsOperation.swift; sourceTree = "<group>"; };
+		43A6678C1C744F7F0072614B /* ParseCriticalItemsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseCriticalItemsOperation.swift; sourceTree = "<group>"; };
 		43B274FC1C30366D00FE9084 /* DownloadKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadKanjiListOperation.swift; sourceTree = "<group>"; };
 		43B274FD1C30366D00FE9084 /* GetKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKanjiListOperation.swift; sourceTree = "<group>"; };
 		43B274FE1C30366D00FE9084 /* ParseKanjiListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseKanjiListOperation.swift; sourceTree = "<group>"; };
@@ -501,6 +509,16 @@
 			path = VocabList;
 			sourceTree = "<group>";
 		};
+		43A667891C744F7F0072614B /* CriticalItems */ = {
+			isa = PBXGroup;
+			children = (
+				43A6678A1C744F7F0072614B /* DownloadCriticalItemsOperation.swift */,
+				43A6678B1C744F7F0072614B /* GetCriticalItemsOperation.swift */,
+				43A6678C1C744F7F0072614B /* ParseCriticalItemsOperation.swift */,
+			);
+			path = CriticalItems;
+			sourceTree = "<group>";
+		};
 		43B274FB1C30366D00FE9084 /* KanjiList */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +538,7 @@
 				43B275021C30391D00FE9084 /* KanjiInfo.swift */,
 				43A6676C1C7215FE0072614B /* RadicalInfo.swift */,
 				43A6677E1C7445120072614B /* WordlInfo.swift */,
+				43A667871C7449A30072614B /* CriticalItems.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -699,6 +718,7 @@
 			children = (
 				3FF9446995992CCC3A7F62BFD82D2C90 /* DownloadOperation.swift */,
 				43F4F4071C305AF2001E80A1 /* ParseOpertion.swift */,
+				43A667891C744F7F0072614B /* CriticalItems */,
 				43A667801C7446510072614B /* VocabList */,
 				43A6676F1C721BBD0072614B /* RadicalsList */,
 				43B274FB1C30366D00FE9084 /* KanjiList */,
@@ -1105,6 +1125,7 @@
 				41F59D3E758CCE5DA749E1CE6AB78E69 /* ExclusivityController.swift in Sources */,
 				B6DB13D09BA578060359D9BA23E48037 /* GetLevelProgressionOperation.swift in Sources */,
 				43A667741C721C090072614B /* GetRadicalsListOperation.swift in Sources */,
+				43A667881C7449A30072614B /* CriticalItems.swift in Sources */,
 				6437C235183A1442E7C4FC71008411E7 /* GetStudyQueueOperation.swift in Sources */,
 				FDC1F7B0EB9008B60E204A6CF067973C /* GetUserInfoOperation.swift in Sources */,
 				3F4E6E553D73B065784D099190FAFA62 /* GroupOperation.swift in Sources */,
@@ -1117,6 +1138,7 @@
 				2768656BC986C8CE1E95C1BDCD033F8D /* NegatedCondition.swift in Sources */,
 				53E688D0BDE79B390770A872574FB62F /* NetworkObserver.swift in Sources */,
 				94B7E0D85C6C9F61519FF8FF33EA3CEB /* NoCancelledDependencies.swift in Sources */,
+				43A6678F1C744F7F0072614B /* ParseCriticalItemsOperation.swift in Sources */,
 				BF263FABD79C656C9CB02A96DE55BE75 /* NSLock+Operations.swift in Sources */,
 				505F020525F5DE76890C9F9D69F02563 /* NSOperation+Operations.swift in Sources */,
 				3CC5CF85D9F3AB4CECEE76669CD3E40C /* Operation.swift in Sources */,
@@ -1140,6 +1162,8 @@
 				037932CA8970C5E4B84BD38C78B4D98F /* StudyQueueInfo.swift in Sources */,
 				60704FBAD040747725BE65298F7FA15A /* TimeoutObserver.swift in Sources */,
 				B10BEA4A57F20D5CBA51A8A3487BF615 /* UIUserNotifications+Operations.swift in Sources */,
+				43A6678D1C744F7F0072614B /* DownloadCriticalItemsOperation.swift in Sources */,
+				43A6678E1C744F7F0072614B /* GetCriticalItemsOperation.swift in Sources */,
 				615C6418D72C91F380026CEEFAF025AE /* URLSessionTaskOperation.swift in Sources */,
 				43A667841C7446510072614B /* DownloadVocabListOperation.swift in Sources */,
 				4AA1E410877DFEEF8A9F3306EF1C0DFD /* UserInfo.swift in Sources */,

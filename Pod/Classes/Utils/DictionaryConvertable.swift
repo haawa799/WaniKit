@@ -16,10 +16,10 @@ protocol DictionaryConvertable {
 public protocol DictionaryInitialization {
   init(dict: NSDictionary)
 }
-//
-//protocol ArrayInitialization {
-//  init(array: NSArray)
-//}
+
+protocol ArrayInitialization {
+  init(array: NSArray)
+}
 
 public func performWithDelay(delay: Double, closure: () -> Void) {
   dispatch_after(

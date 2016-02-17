@@ -110,6 +110,22 @@ class ViewController: UIViewController {
       }
     }
     
+    manager.fetchCriticalItems(90) { (result) -> Void in
+      switch result {
+      case .Error(let error):
+        print(error())
+        //handle error
+      case .Response(let response):
+        let resp = response()
+        if let userInfo = resp.userInfo {
+          print("userInfo: \(userInfo)")
+        }
+        if let critItems = resp.criticalItems {
+          print("critItems: \(critItems)")
+        }
+      }
+    }
+    
   }
 }
 

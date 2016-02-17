@@ -54,6 +54,7 @@ public class WaniApiManager {
   public private(set) var getKanjiListOperation: GetKanjiListOperation?
   public private(set) var getRadicalsListOperation: GetRadicalsListOperation?
   public private(set) var getVocabListOperation: GetVocabListOperation?
+  public private(set) var getCriticalItemsOperation: GetCriticalItemsOperation?
   public private(set) var operationQueue: OperationQueue = {
     let q = OperationQueue()
     q.maxConcurrentOperationCount = 1
@@ -138,6 +139,18 @@ public class WaniApiManager {
       getVocabListOperation = GetVocabListOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
       getVocabListOperation?.userInitiated = true
       operationQueue.addOperation(getVocabListOperation!)
+    }
+  }
+  
+  public func fetchCriticalItems(percentage: Int, handler: CriticalItemsResponseHandler) {
+    guard let baseURL = baseURL else {
+      return
+    }
+    
+    if (getCriticalItemsOperation == nil) || (getCriticalItemsOperation?.finished == true) {
+      getCriticalItemsOperation = GetCriticalItemsOperation(baseURL: baseURL, percentage: percentage, cacheFilePrefix: identifier, handler: handler)
+      getCriticalItemsOperation?.userInitiated = true
+      operationQueue.addOperation(getCriticalItemsOperation!)
     }
   }
   
