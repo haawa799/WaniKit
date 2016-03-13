@@ -1,11 +1,11 @@
-# WaniKit 
+# WaniKit
 
 [![Build Status](https://www.bitrise.io/app/386c5c6c93c06b78.svg?token=zIIsf5cmxfwYZ9SgVhG8Sw&branch=master)](https://www.bitrise.io/app/386c5c6c93c06b78)
 [![Version](https://img.shields.io/cocoapods/v/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
 [![License](https://img.shields.io/cocoapods/l/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
 [![Platform](https://img.shields.io/cocoapods/p/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
 
-![alt text](http://cl.ly/372F1I0C252D/Icon@2x.png"Logo") 
+![alt text](http://cl.ly/372F1I0C252D/Icon@2x.png"Logo")
 ####WaniKit - Swift wrapper for WaniKani.com API. It's based on `NSOperation` and `NSOperationQueue`, as described in [this WWDC2015 talk](https://developer.apple.com/videos/play/wwdc2015-226/).
 
 ####I built it mainly for my - [iOS WaniKani client](https://github.com/haawa799/WaniKani-iOS).
@@ -16,7 +16,7 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 1. Create manger object, and provide it with WaniKani API key (can be found in Settings of your WaniKani profile)
-	
+
 	```swift
 	let manager = WaniApiManager()
     manager.setApiKey("0123abc0123abc0123abc") // Pass key here
@@ -39,7 +39,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
       print("levelProgression: \(levelProgression)")
     })
 	```
-	
+
 4. If for any reason you need only user info
 
 	```swift
@@ -49,8 +49,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 	```
 
 5. More calls to come!
-	
-## 
+
+##
 
 ## Important note
 
