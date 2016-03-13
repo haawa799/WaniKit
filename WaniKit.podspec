@@ -83,5 +83,6 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "WaniKit", "Sources/**/*.{h,m}"
+  s.public_header_files = "Sources/WaniKit/*.h"
 
 end
