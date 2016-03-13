@@ -1,6 +1,6 @@
 # WaniKit
 
-[![Build Status](https://www.bitrise.io/app/386c5c6c93c06b78.svg?token=zIIsf5cmxfwYZ9SgVhG8Sw&branch=master)](https://www.bitrise.io/app/386c5c6c93c06b78)
+[![Build Status](https://travis-ci.org/haawa799/WaniKit.svg?branch=master)](https://travis-ci.org/haawa799/WaniKit)
 [![Version](https://img.shields.io/cocoapods/v/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
 [![License](https://img.shields.io/cocoapods/l/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
 [![Platform](https://img.shields.io/cocoapods/p/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
