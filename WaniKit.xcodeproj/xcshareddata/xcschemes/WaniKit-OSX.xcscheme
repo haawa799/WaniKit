@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "43DAE2731C9592D800F090C4"
-               BuildableName = "WaniKit-OSXTests.xctest"
+               BuildableName = "WaniKitOSXTests.xctest"
                BlueprintName = "WaniKit-OSXTests"
                ReferencedContainer = "container:WaniKit.xcodeproj">
             </BuildableReference>
