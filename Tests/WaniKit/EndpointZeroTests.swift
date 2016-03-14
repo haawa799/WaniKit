@@ -95,4 +95,80 @@ class EndpointZeroTests: XCTestCase {
     waitForExpectationsWithTimeout(2.5, handler: nil)
   }
   
+  func q() {
+    
+    manager.fetchUserInfo { (result) -> Void in
+      switch result {
+      case .Error(let error):
+        print(error())
+      case .Response(let response):
+        let resp = response()
+        if let userInfo = resp {
+          print(userInfo)
+        }
+      }
+    }
+    
+    manager.fetchRadicalsList(7) { (result) -> Void in
+      switch result {
+      case .Error(let error):
+        print(error())
+      case .Response(let response):
+        let resp = response()
+        if let userInfo = resp.userInfo {
+          print(userInfo)
+        }
+        if let radicals = resp.radicals {
+          print(radicals)
+        }
+      }
+    }
+    
+    manager.fetchKanjiList(8) { (result) -> Void in
+      switch result {
+      case .Error(let error):
+        print(error())
+      case .Response(let response):
+        let resp = response()
+        if let userInfo = resp.userInfo {
+          print(userInfo)
+        }
+        if let kanji = resp.kanji {
+          print(kanji)
+        }
+      }
+    }
+    
+    manager.fetchVocabList(9) { (result) -> Void in
+      switch result {
+      case .Error(let error):
+        print(error())
+      case .Response(let response):
+        let resp = response()
+        if let userInfo = resp.userInfo {
+          print(userInfo)
+        }
+        if let vocab = resp.vocab {
+          print(vocab)
+        }
+      }
+    }
+    
+    manager.fetchCriticalItems(85) { (result) -> Void in
+      switch result {
+      case .Error(let error):
+        print(error())
+      case .Response(let response):
+        let resp = response()
+        if let userInfo = resp.userInfo {
+          print(userInfo)
+        }
+        if let criticalItems = resp.criticalItems {
+          print(criticalItems)
+        }
+      }
+    }
+    
+  }
+  
 }
