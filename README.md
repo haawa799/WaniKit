@@ -1,11 +1,12 @@
 # WaniKit
 
 [![Build Status](https://travis-ci.org/haawa799/WaniKit.svg?branch=master)](https://travis-ci.org/haawa799/WaniKit)
-[![Version](https://img.shields.io/cocoapods/v/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
 [![License](https://img.shields.io/cocoapods/l/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
+[![Version](https://img.shields.io/cocoapods/v/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-✓-5f7cae.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/cocoapods/p/WaniKit.svg?style=flat)](http://cocoapods.org/pods/WaniKit)
 
-![alt text](http://cl.ly/372F1I0C252D/Icon@2x.png"Logo")
+![alt text](icon.png)
 ####WaniKit - Swift wrapper for WaniKani.com API. It's based on `NSOperation` and `NSOperationQueue`, as described in [this WWDC2015 talk](https://developer.apple.com/videos/play/wwdc2015-226/).
 
 ####I built it mainly for my - [iOS WaniKani client](https://github.com/haawa799/WaniKani-iOS).
@@ -74,7 +75,7 @@ pod "WaniKit"
 ### Carthage
 WaniKit is avaliable through Carthage. To install
 
-1. In Cartfile add: 
+1. In Cartfile add:
 ```ruby
 github "haawa799/WaniKit"
 ```
