@@ -63,12 +63,32 @@ If you need multimple same requests sent at the same time, you can use two manag
 
 ## Installation
 
+### Cocoapods
 WaniKit is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "WaniKit"
 ```
+
+### Carthage
+WaniKit is avaliable through Carthage. To install
+
+1. In Cartfile add: 
+```ruby
+github "haawa799/WaniKit"
+```
+
+2. Build framework for different platforms with:
+```shell
+carthage update --platform iOS
+```
+or
+```shell
+carthage update --platform Mac
+```
+
+3. Manually add framework to your targets
 
 ## Author
 
