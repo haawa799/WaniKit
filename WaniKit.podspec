@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "WaniKit"
-  s.version      = "2.0.2"
+  s.version      = "2.0.3"
   s.summary      = "WaniKit - Swift wrapper for WaniKani.com API."
   s.description  = <<-DESC
   WaniKit - Swift wrapper for WaniKani.com API. It's based on NSOperation and NSOperationQueue, as described in this WWDC2015 talk.
