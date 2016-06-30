@@ -1,5 +1,5 @@
 //
-//  ParseUserInfoOperation.swift
+//  ParseUserInfoAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/14/15.
@@ -12,14 +12,14 @@ import Foundation
 public typealias KanjiListResponse = (userInfo: UserInfo?, kanji: [KanjiInfo]?)
 public typealias KanjiListResponseHandler = (Result<KanjiListResponse, NSError>) -> Void
 
-public class ParseKanjiListOperation: ParseOperation<KanjiListResponse> {
+public class ParseKanjiListAppleOperation: ParseAppleOperation<KanjiListResponse> {
   
-  override init(cacheFile: NSURL, handler: ResponseHandler) {
+  override init(cacheFile: URL, handler: ResponseHandler) {
     super.init(cacheFile: cacheFile, handler: handler)
     name = "Parse Kanji list"
   }
   
-  override func parsedValue(rootDictionary: NSDictionary?) -> KanjiListResponse? {
+  override func parsedValue(_ rootDictionary: NSDictionary?) -> KanjiListResponse? {
     
     var user: UserInfo?
     if let userInfo = rootDictionary?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {

@@ -3,39 +3,39 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows how to implement the OperationObserver protocol.
+This file shows how to implement the AppleOperationObserver protocol.
 */
 
 import Foundation
 
 /**
     The `BlockObserver` is a way to attach arbitrary blocks to significant events
-    in an `Operation`'s lifecycle.
+    in an `AppleOperation`'s lifecycle.
 */
-public struct BlockObserver: OperationObserver {
+public struct BlockObserver: AppleOperationObserver {
     // MARK: Properties
     
-    private let startHandler: (Operation -> Void)?
-    private let produceHandler: ((Operation, NSOperation) -> Void)?
-    private let finishHandler: ((Operation, [NSError]) -> Void)?
+    private let startHandler: ((AppleOperation) -> Void)?
+    private let produceHandler: ((AppleOperation, Operation) -> Void)?
+    private let finishHandler: ((AppleOperation, [NSError]) -> Void)?
     
-    init(startHandler: (Operation -> Void)? = nil, produceHandler: ((Operation, NSOperation) -> Void)? = nil, finishHandler: ((Operation, [NSError]) -> Void)? = nil) {
+    init(startHandler: ((AppleOperation) -> Void)? = nil, produceHandler: ((AppleOperation, Operation) -> Void)? = nil, finishHandler: ((AppleOperation, [NSError]) -> Void)? = nil) {
         self.startHandler = startHandler
         self.produceHandler = produceHandler
         self.finishHandler = finishHandler
     }
     
-    // MARK: OperationObserver
+    // MARK: AppleOperationObserver
     
-    func operationDidStart(operation: Operation) {
+    func operationDidStart(_ operation: AppleOperation) {
         startHandler?(operation)
     }
     
-    func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
-        produceHandler?(operation, newOperation)
+    func operation(_ operation: AppleOperation, didProduceAppleOperation newAppleOperation: Operation) {
+        produceHandler?(operation, newAppleOperation)
     }
     
-    func operationDidFinish(operation: Operation, errors: [NSError]) {
+    func operationDidFinish(_ operation: AppleOperation, errors: [NSError]) {
         finishHandler?(operation, errors)
     }
 }

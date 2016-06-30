@@ -3,13 +3,13 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows an example of implementing the OperationCondition protocol.
+This file shows an example of implementing the AppleOperationCondition protocol.
 */
 
 import Foundation
 
 /// A generic condition for describing kinds of operations that may not execute concurrently.
-public struct MutuallyExclusive<T>: OperationCondition {
+public struct MutuallyExclusive<T>: AppleOperationCondition {
     public static var name: String {
         return "MutuallyExclusive<\(T.self)>"
     }
@@ -20,12 +20,12 @@ public struct MutuallyExclusive<T>: OperationCondition {
     
     init() { }
     
-    public func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForAppleOperation(_ operation: AppleOperation) -> Operation? {
         return nil
     }
     
-    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
-        completion(.Satisfied)
+    public func evaluateForAppleOperation(_ operation: AppleOperation, completion: (AppleOperationConditionResult) -> Void) {
+        completion(.satisfied)
     }
 }
 

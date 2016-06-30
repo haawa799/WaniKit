@@ -9,7 +9,7 @@ This file shows how to make an operation that efficiently waits.
 import Foundation
 
 /**
-    `DelayOperation` is an `Operation` that will simply wait for a given time
+    `DelayAppleOperation` is an `AppleOperation` that will simply wait for a given time
     interval, or until a specific `NSDate`.
 
     It is important to note that this operation does **not** use the `sleep()`
@@ -20,12 +20,12 @@ import Foundation
     If the interval is negative, or the `NSDate` is in the past, then this operation
     immediately finishes.
 */
-class DelayOperation: Operation {
+class DelayAppleOperation: AppleOperation {
     // MARK: Types
 
     private enum Delay {
-        case Interval(NSTimeInterval)
-        case Date(NSDate)
+        case interval(TimeInterval)
+        case date(Foundation.Date)
     }
     
     // MARK: Properties
@@ -34,25 +34,25 @@ class DelayOperation: Operation {
     
     // MARK: Initialization
     
-    init(interval: NSTimeInterval) {
-        delay = .Interval(interval)
+    init(interval: TimeInterval) {
+        delay = .interval(interval)
         super.init()
     }
     
-    init(until date: NSDate) {
-        delay = .Date(date)
+    init(until date: Date) {
+        delay = .date(date)
         super.init()
     }
     
     override func execute() {
-        let interval: NSTimeInterval
+        let interval: TimeInterval
         
         // Figure out how long we should wait for.
         switch delay {
-            case .Interval(let theInterval):
+            case .interval(let theInterval):
                 interval = theInterval
 
-            case .Date(let date):
+            case .date(let date):
                 interval = date.timeIntervalSinceNow
         }
         
@@ -61,10 +61,9 @@ class DelayOperation: Operation {
             return
         }
 
-        let when = dispatch_time(DISPATCH_TIME_NOW, Int64(interval * Double(NSEC_PER_SEC)))
-        dispatch_after(when, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).after(when: .now() + interval) {
             // If we were cancelled, then finish() has already been called.
-            if !self.cancelled {
+            if !self.isCancelled {
                 self.finish()
             }
         }

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43ABC3B31C92C03400FC2AE7"
+               BlueprintIdentifier = "43B2A5701D25B3E50021B4BD"
                BuildableName = "WaniKit.framework"
-               BlueprintName = "WaniKit-iOS"
+               BlueprintName = "WaniKit-macOS"
                ReferencedContainer = "container:WaniKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43ABC3BD1C92C03500FC2AE7"
-               BuildableName = "WaniKitTests.xctest"
-               BlueprintName = "WaniKitTests"
+               BlueprintIdentifier = "43B2A5791D25B3E50021B4BD"
+               BuildableName = "WaniKit-macOSTests.xctest"
+               BlueprintName = "WaniKit-macOSTests"
                ReferencedContainer = "container:WaniKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43ABC3B31C92C03400FC2AE7"
+            BlueprintIdentifier = "43B2A5701D25B3E50021B4BD"
             BuildableName = "WaniKit.framework"
-            BlueprintName = "WaniKit-iOS"
+            BlueprintName = "WaniKit-macOS"
             ReferencedContainer = "container:WaniKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43ABC3B31C92C03400FC2AE7"
+            BlueprintIdentifier = "43B2A5701D25B3E50021B4BD"
             BuildableName = "WaniKit.framework"
-            BlueprintName = "WaniKit-iOS"
+            BlueprintName = "WaniKit-macOS"
             ReferencedContainer = "container:WaniKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "43ABC3B31C92C03400FC2AE7"
+            BlueprintIdentifier = "43B2A5701D25B3E50021B4BD"
             BuildableName = "WaniKit.framework"
-            BlueprintName = "WaniKit-iOS"
+            BlueprintName = "WaniKit-macOS"
             ReferencedContainer = "container:WaniKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

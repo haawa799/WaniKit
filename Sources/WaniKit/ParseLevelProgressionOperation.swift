@@ -1,5 +1,5 @@
 //
-//  ParseLevelProgressionOperation.swift
+//  ParseLevelProgressionAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/10/15.
@@ -12,14 +12,14 @@ public typealias LevelProgressionResponse = (userInfo: UserInfo?, levelProgressi
 public typealias LevelProgressionRecieveBlock = (Result<LevelProgressionResponse, NSError>) -> Void
 
 
-public class ParseLevelProgressionOperation: ParseOperation<LevelProgressionResponse> {
+public class ParseLevelProgressionAppleOperation: ParseAppleOperation<LevelProgressionResponse> {
   
-  override init(cacheFile: NSURL, handler: ResponseHandler) {
+  override init(cacheFile: URL, handler: ResponseHandler) {
     super.init(cacheFile: cacheFile, handler: handler)
     name = "Parse LevelProgression"
   }
   
-  override func parsedValue(rootDictionary: NSDictionary?) -> LevelProgressionResponse? {
+  override func parsedValue(_ rootDictionary: NSDictionary?) -> LevelProgressionResponse? {
     
     var user: UserInfo?
     var levelProgress: LevelProgressionInfo?

@@ -1,5 +1,5 @@
 //
-//  GetUserInfoOperation.swift
+//  GetUserInfoAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/14/15.
@@ -9,23 +9,23 @@
 import Foundation
 
 
-public class GetUserInfoOperation: GroupOperation {
+public class GetUserInfoAppleOperation: GroupAppleOperation {
   
-  let downloadOperation: DownloadUserInfoOperation
-  let parseOperation: ParseUserInfoOperation
+  let downloadAppleOperation: DownloadUserInfoAppleOperation
+  let parseAppleOperation: ParseUserInfoAppleOperation
   
   init(baseURL: String, cacheFilePrefix: String?, handler: UserInfoResponseHandler) {
     
-    let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(cacheFilePrefix)_userInfo.json")
+    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_userInfo.json")
     
     
-    let url = NSURL(string: "\(baseURL)/user-information")!
-    downloadOperation = DownloadUserInfoOperation(url: url, cacheFile: cacheFile)
-    parseOperation = ParseUserInfoOperation(cacheFile: cacheFile, handler: handler)
-    parseOperation.addDependency(downloadOperation)
+    let url = URL(string: "\(baseURL)/user-information")!
+    downloadAppleOperation = DownloadUserInfoAppleOperation(url: url, cacheFile: cacheFile)
+    parseAppleOperation = ParseUserInfoAppleOperation(cacheFile: cacheFile, handler: handler)
+    parseAppleOperation.addDependency(downloadAppleOperation)
     
-    super.init(operations: [downloadOperation, parseOperation])
+    super.init(operations: [downloadAppleOperation, parseAppleOperation])
     name = "Get User info"
   }
   

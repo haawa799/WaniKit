@@ -10,15 +10,15 @@ import Foundation
 
 /**
     `ExclusivityController` is a singleton to keep track of all the in-flight
-    `Operation` instances that have declared themselves as requiring mutual exclusivity.
+    `AppleOperation` instances that have declared themselves as requiring mutual exclusivity.
     We use a singleton because mutual exclusivity must be enforced across the entire
-    app, regardless of the `OperationQueue` on which an `Operation` was executed.
+    app, regardless of the `AppleAppleOperationQueue` on which an `AppleOperation` was executed.
 */
 class ExclusivityController {
     static let sharedExclusivityController = ExclusivityController()
     
-    private let serialQueue = dispatch_queue_create("Operations.ExclusivityController", DISPATCH_QUEUE_SERIAL)
-    private var operations: [String: [Operation]] = [:]
+    private let serialQueue = DispatchQueue(label: "AppleOperations.ExclusivityController", attributes: DispatchQueueAttributes.serial)
+    private var operations: [String: [AppleOperation]] = [:]
     
     private init() {
         /*
@@ -28,13 +28,13 @@ class ExclusivityController {
     }
     
     /// Registers an operation as being mutually exclusive
-    func addOperation(operation: Operation, categories: [String]) {
+    func addOperation(_ operation: AppleOperation, categories: [String]) {
         /*
             This needs to be a synchronous operation.
             If this were async, then we might not get around to adding dependencies
             until after the operation had already begun, which would be incorrect.
         */
-        dispatch_sync(serialQueue) {
+        serialQueue.sync {
             for category in categories {
                 self.noqueue_addOperation(operation, category: category)
             }
@@ -42,18 +42,18 @@ class ExclusivityController {
     }
     
     /// Unregisters an operation from being mutually exclusive.
-    func removeOperation(operation: Operation, categories: [String]) {
-        dispatch_async(serialQueue) {
+    func removeAppleOperation(_ operation: AppleOperation, categories: [String]) {
+        serialQueue.async {
             for category in categories {
-                self.noqueue_removeOperation(operation, category: category)
+                self.noqueue_removeAppleOperation(operation, category: category)
             }
         }
     }
     
     
-    // MARK: Operation Management
+    // MARK: AppleOperation Management
     
-    private func noqueue_addOperation(operation: Operation, category: String) {
+    private func noqueue_addOperation(_ operation: AppleOperation, category: String) {
         var operationsWithThisCategory = operations[category] ?? []
         
         if let last = operationsWithThisCategory.last {
@@ -65,13 +65,13 @@ class ExclusivityController {
         operations[category] = operationsWithThisCategory
     }
     
-    private func noqueue_removeOperation(operation: Operation, category: String) {
-        let matchingOperations = operations[category]
+    private func noqueue_removeAppleOperation(_ operation: AppleOperation, category: String) {
+        let matchingAppleOperations = operations[category]
 
-        if var operationsWithThisCategory = matchingOperations,
-           let index = operationsWithThisCategory.indexOf(operation) {
+        if var operationsWithThisCategory = matchingAppleOperations,
+           let index = operationsWithThisCategory.index(of: operation) {
 
-            operationsWithThisCategory.removeAtIndex(index)
+            operationsWithThisCategory.remove(at: index)
             operations[category] = operationsWithThisCategory
         }
     }

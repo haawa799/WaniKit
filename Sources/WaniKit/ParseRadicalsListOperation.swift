@@ -1,5 +1,5 @@
 //
-//  ParseUserInfoOperation.swift
+//  ParseUserInfoAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/14/15.
@@ -12,14 +12,14 @@ import Foundation
 public typealias RadicalsListResponse = (userInfo: UserInfo?, radicals: [RadicalInfo]?)
 public typealias RadicalsListResponseHandler = (Result<RadicalsListResponse, NSError>) -> Void
 
-public class ParseRadicalsListOperation: ParseOperation<RadicalsListResponse> {
+public class ParseRadicalsListAppleOperation: ParseAppleOperation<RadicalsListResponse> {
   
-  override init(cacheFile: NSURL, handler: ResponseHandler) {
+  override init(cacheFile: URL, handler: ResponseHandler) {
     super.init(cacheFile: cacheFile, handler: handler)
     name = "Parse Radicals list"
   }
   
-  override func parsedValue(rootDictionary: NSDictionary?) -> RadicalsListResponse? {
+  override func parsedValue(_ rootDictionary: NSDictionary?) -> RadicalsListResponse? {
     
     var user: UserInfo?
     if let userInfo = rootDictionary?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {

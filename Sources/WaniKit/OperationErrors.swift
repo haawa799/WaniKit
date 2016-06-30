@@ -3,29 +3,29 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file defines the error codes and convenience functions for interacting with Operation-related errors.
+This file defines the error codes and convenience functions for interacting with AppleOperation-related errors.
 */
 
 import Foundation
 
-let OperationErrorDomain = "OperationErrors"
+let AppleOperationErrorDomain = "AppleOperationErrors"
 
-enum OperationErrorCode: Int {
-    case ConditionFailed = 1
-    case ExecutionFailed = 2
+enum AppleOperationErrorCode: Int {
+    case conditionFailed = 1
+    case executionFailed = 2
 }
 
 extension NSError {
-    convenience init(code: OperationErrorCode, userInfo: [NSObject: AnyObject]? = nil) {
-        self.init(domain: OperationErrorDomain, code: code.rawValue, userInfo: userInfo)
+    convenience init(code: AppleOperationErrorCode, userInfo: [NSObject: AnyObject]? = nil) {
+        self.init(domain: AppleOperationErrorDomain, code: code.rawValue, userInfo: userInfo)
     }
 }
 
-// This makes it easy to compare an `NSError.code` to an `OperationErrorCode`.
-func ==(lhs: Int, rhs: OperationErrorCode) -> Bool {
+// This makes it easy to compare an `NSError.code` to an `AppleOperationErrorCode`.
+func ==(lhs: Int, rhs: AppleOperationErrorCode) -> Bool {
     return lhs == rhs.rawValue
 }
 
-func ==(lhs: OperationErrorCode, rhs: Int) -> Bool {
+func ==(lhs: AppleOperationErrorCode, rhs: Int) -> Bool {
     return lhs.rawValue == rhs
 }

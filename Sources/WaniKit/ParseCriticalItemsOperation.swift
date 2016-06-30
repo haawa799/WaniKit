@@ -1,5 +1,5 @@
 //
-//  ParseUserInfoOperation.swift
+//  ParseUserInfoAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/14/15.
@@ -12,14 +12,14 @@ import Foundation
 public typealias CriticalItemsResponse = (userInfo: UserInfo?, criticalItems: CriticalItems?)
 public typealias CriticalItemsResponseHandler = (Result<CriticalItemsResponse, NSError>) -> Void
 
-public class ParseCriticalItemsOperation: ParseOperation<CriticalItemsResponse> {
+public class ParseCriticalItemsAppleOperation: ParseAppleOperation<CriticalItemsResponse> {
   
-  override init(cacheFile: NSURL, handler: ResponseHandler) {
+  override init(cacheFile: URL, handler: ResponseHandler) {
     super.init(cacheFile: cacheFile, handler: handler)
     name = "Parse Critical items list"
   }
   
-  override func parsedValue(rootDictionary: NSDictionary?) -> CriticalItemsResponse? {
+  override func parsedValue(_ rootDictionary: NSDictionary?) -> CriticalItemsResponse? {
     
     var user: UserInfo?
     if let userInfo = rootDictionary?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {

@@ -1,5 +1,5 @@
 //
-//  GetUserInfoOperation.swift
+//  GetUserInfoAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/14/15.
@@ -9,22 +9,22 @@
 import Foundation
 
 
-public class GetKanjiListOperation: GroupOperation {
+public class GetKanjiListAppleOperation: GroupAppleOperation {
   
-  let downloadOperation: DownloadKanjiListOperation
-  let parseOperation: ParseKanjiListOperation
+  let downloadAppleOperation: DownloadKanjiListAppleOperation
+  let parseAppleOperation: ParseKanjiListAppleOperation
   
   init(baseURL: String, level: Int, cacheFilePrefix: String?, handler: KanjiListResponseHandler) {
     
-    let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(cacheFilePrefix)_kanjiList_\(level).json")
+    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_kanjiList_\(level).json")
     
-    let url = NSURL(string: "\(baseURL)/kanji/\(level)")!
-    downloadOperation = DownloadKanjiListOperation(url: url, cacheFile: cacheFile)
-    parseOperation = ParseKanjiListOperation(cacheFile: cacheFile, handler: handler)
-    parseOperation.addDependency(downloadOperation)
+    let url = URL(string: "\(baseURL)/kanji/\(level)")!
+    downloadAppleOperation = DownloadKanjiListAppleOperation(url: url, cacheFile: cacheFile)
+    parseAppleOperation = ParseKanjiListAppleOperation(cacheFile: cacheFile, handler: handler)
+    parseAppleOperation.addDependency(downloadAppleOperation)
     
-    super.init(operations: [downloadOperation, parseOperation])
+    super.init(operations: [downloadAppleOperation, parseAppleOperation])
     name = "Get Kanji List"
   }
   

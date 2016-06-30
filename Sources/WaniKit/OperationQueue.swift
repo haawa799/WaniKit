@@ -9,34 +9,34 @@ This file contains an NSOperationQueue subclass.
 import Foundation
 
 /**
-    The delegate of an `OperationQueue` can respond to `Operation` lifecycle
+    The delegate of an `AppleAppleOperationQueue` can respond to `AppleOperation` lifecycle
     events by implementing these methods.
 
-    In general, implementing `OperationQueueDelegate` is not necessary; you would
-    want to use an `OperationObserver` instead. However, there are a couple of
-    situations where using `OperationQueueDelegate` can lead to simpler code.
-    For example, `GroupOperation` is the delegate of its own internal
-    `OperationQueue` and uses it to manage dependencies.
+    In general, implementing `AppleAppleOperationQueueDelegate` is not necessary; you would
+    want to use an `AppleOperationObserver` instead. However, there are a couple of
+    situations where using `AppleAppleOperationQueueDelegate` can lead to simpler code.
+    For example, `GroupAppleOperation` is the delegate of its own internal
+    `AppleAppleOperationQueue` and uses it to manage dependencies.
 */
-@objc protocol OperationQueueDelegate: NSObjectProtocol {
-    optional func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation)
-    optional func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [NSError])
+@objc protocol AppleAppleOperationQueueDelegate: NSObjectProtocol {
+    @objc optional func operationQueue(_ operationQueue: AppleAppleOperationQueue, willAddAppleOperation operation: Operation)
+    @objc optional func operationQueue(_ operationQueue: AppleAppleOperationQueue, operationDidFinish operation: Operation, withErrors errors: [NSError])
 }
 
 /**
-    `OperationQueue` is an `NSOperationQueue` subclass that implements a large
-    number of "extra features" related to the `Operation` class:
+    `AppleAppleOperationQueue` is an `NSOperationQueue` subclass that implements a large
+    number of "extra features" related to the `AppleOperation` class:
     
     - Notifying a delegate of all operation completion
     - Extracting generated dependencies from operation conditions
     - Setting up dependencies to enforce mutual exclusivity
 */
-public class OperationQueue: NSOperationQueue {
-    weak var delegate: OperationQueueDelegate?
+public class AppleAppleOperationQueue: OperationQueue {
+    weak var delegate: AppleAppleOperationQueueDelegate?
     
-    override public func addOperation(operation: NSOperation) {
-        if let op = operation as? Operation {
-            // Set up a `BlockObserver` to invoke the `OperationQueueDelegate` method.
+    override public func addOperation(_ operation: Operation) {
+        if let op = operation as? AppleOperation {
+            // Set up a `BlockObserver` to invoke the `AppleAppleOperationQueueDelegate` method.
             let delegate = BlockObserver(
                 startHandler: nil,
                 produceHandler: { [weak self] in
@@ -52,7 +52,7 @@ public class OperationQueue: NSOperationQueue {
             
             // Extract any dependencies needed by this operation.
             let dependencies = op.conditions.flatMap {
-                $0.dependencyForOperation(op)
+                $0.dependencyForAppleOperation(op)
             }
                 
             for dependency in dependencies {
@@ -78,7 +78,7 @@ public class OperationQueue: NSOperationQueue {
                 exclusivityController.addOperation(op, categories: concurrencyCategories)
                 
                 op.addObserver(BlockObserver { operation, _ in
-                    exclusivityController.removeOperation(operation, categories: concurrencyCategories)
+                    exclusivityController.removeAppleOperation(operation, categories: concurrencyCategories)
                 })
             }
             
@@ -102,11 +102,11 @@ public class OperationQueue: NSOperationQueue {
             }
         }
         
-        delegate?.operationQueue?(self, willAddOperation: operation)
+        delegate?.operationQueue?(self, willAddAppleOperation: operation)
         super.addOperation(operation)
     }
     
-    override public func addOperations(operations: [NSOperation], waitUntilFinished wait: Bool) {
+    override public func addOperations(_ operations: [Operation], waitUntilFinished wait: Bool) {
         /*
             The base implementation of this method does not call `addOperation()`,
             so we'll call it ourselves.

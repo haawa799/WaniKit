@@ -3,41 +3,39 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows how to implement the OperationObserver protocol.
+This file shows how to implement the AppleOperationObserver protocol.
 */
 
 import Foundation
 
 /**
-    `TimeoutObserver` is a way to make an `Operation` automatically time out and
+    `TimeoutObserver` is a way to make an `AppleOperation` automatically time out and
     cancel after a specified time interval.
 */
-public struct TimeoutObserver: OperationObserver {
+public struct TimeoutObserver: AppleOperationObserver {
     // MARK: Properties
 
     static let timeoutKey = "Timeout"
     
-    private let timeout: NSTimeInterval
+    private let timeout: TimeInterval
     
     // MARK: Initialization
     
-    init(timeout: NSTimeInterval) {
+    init(timeout: TimeInterval) {
         self.timeout = timeout
     }
     
-    // MARK: OperationObserver
+    // MARK: AppleOperationObserver
     
-    func operationDidStart(operation: Operation) {
+    func operationDidStart(_ operation: AppleOperation) {
         // When the operation starts, queue up a block to cause it to time out.
-        let when = dispatch_time(DISPATCH_TIME_NOW, Int64(timeout * Double(NSEC_PER_SEC)))
-
-        dispatch_after(when, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+        DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes.qosDefault).after(when: .now() + timeout) {
             /*
                 Cancel the operation if it hasn't finished and hasn't already
                 been cancelled.
             */
-            if !operation.finished && !operation.cancelled {
-                let error = NSError(code: .ExecutionFailed, userInfo: [
+            if !operation.isFinished && !operation.isCancelled {
+                let error = NSError(code: .executionFailed, userInfo: [
                     self.dynamicType.timeoutKey: self.timeout
                 ])
 
@@ -46,11 +44,11 @@ public struct TimeoutObserver: OperationObserver {
         }
     }
 
-    func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
+    func operation(_ operation: AppleOperation, didProduceAppleOperation newAppleOperation: Operation) {
         // No op.
     }
 
-    func operationDidFinish(operation: Operation, errors: [NSError]) {
+    func operationDidFinish(_ operation: AppleOperation, errors: [NSError]) {
         // No op.
     }
 }

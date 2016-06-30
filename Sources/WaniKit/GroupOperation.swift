@@ -9,35 +9,35 @@ This file shows how operations can be composed together to form new operations.
 import Foundation
 
 /**
-    A subclass of `Operation` that executes zero or more operations as part of its
+    A subclass of `AppleOperation` that executes zero or more operations as part of its
     own execution. This class of operation is very useful for abstracting several
-    smaller operations into a larger operation. As an example, the `GetEarthquakesOperation`
-    is composed of both a `DownloadEarthquakesOperation` and a `ParseEarthquakesOperation`.
+    smaller operations into a larger operation. As an example, the `GetEarthquakesAppleOperation`
+    is composed of both a `DownloadEarthquakesAppleOperation` and a `ParseEarthquakesAppleOperation`.
 
-    Additionally, `GroupOperation`s are useful if you establish a chain of dependencies,
+    Additionally, `GroupAppleOperation`s are useful if you establish a chain of dependencies,
     but part of the chain may "loop". For example, if you have an operation that
     requires the user to be authenticated, you may consider putting the "login"
     operation inside a group operation. That way, the "login" operation may produce
-    subsequent operations (still within the outer `GroupOperation`) that will all
+    subsequent operations (still within the outer `GroupAppleOperation`) that will all
     be executed before the rest of the operations in the initial chain of operations.
 */
-public class GroupOperation: Operation {
-    private let internalQueue = OperationQueue()
-    private let startingOperation = NSBlockOperation(block: {})
-    private let finishingOperation = NSBlockOperation(block: {})
+public class GroupAppleOperation: AppleOperation {
+    private let internalQueue = AppleAppleOperationQueue()
+    private let startingAppleOperation = BlockOperation(block: {})
+    private let finishingAppleOperation = BlockOperation(block: {})
 
     private var aggregatedErrors = [NSError]()
     
-    convenience init(operations: NSOperation...) {
+    convenience init(operations: Operation...) {
         self.init(operations: operations)
     }
     
-    init(operations: [NSOperation]) {
+    init(operations: [Operation]) {
         super.init()
         
-        internalQueue.suspended = true
+        internalQueue.isSuspended = true
         internalQueue.delegate = self
-        internalQueue.addOperation(startingOperation)
+        internalQueue.addOperation(startingAppleOperation)
 
         for operation in operations {
             internalQueue.addOperation(operation)
@@ -50,11 +50,11 @@ public class GroupOperation: Operation {
     }
     
     override func execute() {
-        internalQueue.suspended = false
-        internalQueue.addOperation(finishingOperation)
+        internalQueue.isSuspended = false
+        internalQueue.addOperation(finishingAppleOperation)
     }
     
-    func addOperation(operation: NSOperation) {
+    func addOperation(_ operation: Operation) {
         internalQueue.addOperation(operation)
     }
     
@@ -63,48 +63,48 @@ public class GroupOperation: Operation {
         Errors aggregated through this method will be included in the final array
         of errors reported to observers and to the `finished(_:)` method.
     */
-    final func aggregateError(error: NSError) {
+    final func aggregateError(_ error: NSError) {
         aggregatedErrors.append(error)
     }
     
-    func operationDidFinish(operation: NSOperation, withErrors errors: [NSError]) {
+    func operationDidFinish(_ operation: Operation, withErrors errors: [NSError]) {
         // For use by subclassers.
     }
 }
 
-extension GroupOperation: OperationQueueDelegate {
-    final func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation) {
-        assert(!finishingOperation.finished && !finishingOperation.executing, "cannot add new operations to a group after the group has completed")
+extension GroupAppleOperation: AppleAppleOperationQueueDelegate {
+    final func operationQueue(_ operationQueue: AppleAppleOperationQueue, willAddAppleOperation operation: Operation) {
+        assert(!finishingAppleOperation.isFinished && !finishingAppleOperation.isExecuting, "cannot add new operations to a group after the group has completed")
         
         /*
             Some operation in this group has produced a new operation to execute.
             We want to allow that operation to execute before the group completes,
             so we'll make the finishing operation dependent on this newly-produced operation.
         */
-        if operation !== finishingOperation {
-            finishingOperation.addDependency(operation)
+        if operation !== finishingAppleOperation {
+            finishingAppleOperation.addDependency(operation)
         }
         
         /*
-            All operations should be dependent on the "startingOperation".
+            All operations should be dependent on the "startingAppleOperation".
             This way, we can guarantee that the conditions for other operations
             will not evaluate until just before the operation is about to run.
             Otherwise, the conditions could be evaluated at any time, even
             before the internal operation queue is unsuspended.
         */
-        if operation !== startingOperation {
-            operation.addDependency(startingOperation)
+        if operation !== startingAppleOperation {
+            operation.addDependency(startingAppleOperation)
         }
     }
     
-    final func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [NSError]) {
-        aggregatedErrors.appendContentsOf(errors)
+    final func operationQueue(_ operationQueue: AppleAppleOperationQueue, operationDidFinish operation: Operation, withErrors errors: [NSError]) {
+        aggregatedErrors.append(contentsOf: errors)
         
-        if operation === finishingOperation {
-            internalQueue.suspended = true
+        if operation === finishingAppleOperation {
+            internalQueue.isSuspended = true
             finish(aggregatedErrors)
         }
-        else if operation !== startingOperation {
+        else if operation !== startingAppleOperation {
             operationDidFinish(operation, withErrors: errors)
         }
     }

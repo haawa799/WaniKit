@@ -9,14 +9,14 @@
 import Foundation
 
 
-public class ParseOperation <T> : Operation {
+public class ParseAppleOperation <T> : AppleOperation {
   
   public typealias ResponseHandler = (Result<T, NSError>) -> Void
   
-  private let cacheFile: NSURL
+  private let cacheFile: URL
   private var handler: ResponseHandler
   
-  public init(cacheFile: NSURL, handler: ResponseHandler ) {
+  public init(cacheFile: URL, handler: ResponseHandler ) {
     self.cacheFile = cacheFile
     self.handler = handler
     super.init()
@@ -26,12 +26,12 @@ public class ParseOperation <T> : Operation {
     
     func throwAnError() {
       let error = NSError(domain: "Error reading data", code: 0, userInfo: nil)
-      handler(Result.Error({error}))
+      handler(Result.error({error}))
       finish()
     }
     
     
-    guard let stream = NSInputStream(URL: cacheFile) else {
+    guard let stream = InputStream(url: cacheFile) else {
       throwAnError()
       return
     }
@@ -42,10 +42,10 @@ public class ParseOperation <T> : Operation {
     }
     
     do {
-      let json = try NSJSONSerialization.JSONObjectWithStream(stream, options: []) as? NSDictionary
+      let json = try JSONSerialization.jsonObject(with: stream, options: []) as? NSDictionary
       
       if let parsedResult = parsedValue(json) {
-        handler(Result.Response({parsedResult}))
+        handler(Result.response({parsedResult}))
         finish()
       } else {
         throwAnError()
@@ -56,7 +56,7 @@ public class ParseOperation <T> : Operation {
     }
   }
   
-  func parsedValue(rootDictionary: NSDictionary?) -> T? {
+  func parsedValue(_ rootDictionary: NSDictionary?) -> T? {
     return nil
   }
   

@@ -33,10 +33,10 @@ public struct UserSpecific: DictionaryInitialization {
   // Fields
   public var srs: String?
   public var srsNumeric: Int?
-  public var unlockedDate: NSDate?
-  public var availableDate: NSDate?
+  public var unlockedDate: Date?
+  public var availableDate: Date?
   public var burned: Bool
-  public var burnedDate: NSDate?
+  public var burnedDate: Date?
   public var meaningCorrect: Int?
   public var meaningIncorrect: Int?
   public var meaningMaxStreak: Int?
@@ -57,13 +57,13 @@ public struct UserSpecific: DictionaryInitialization {
     burned = (dict[UserSpecific.keyBurned] as! Bool)
     
     if let unlock = dict[UserSpecific.keyUnlockDate] as? Int {
-      unlockedDate = NSDate(timeIntervalSince1970: NSTimeInterval(unlock))
+      unlockedDate = Date(timeIntervalSince1970: TimeInterval(unlock))
     }
     if let avaliable = dict[UserSpecific.keyAvaliableDate] as? Int {
-      availableDate = NSDate(timeIntervalSince1970: NSTimeInterval(avaliable))
+      availableDate = Date(timeIntervalSince1970: TimeInterval(avaliable))
     }
     if let burnedDateInt = dict[UserSpecific.keyAvaliableDate] as? Int {
-      burnedDate = NSDate(timeIntervalSince1970: NSTimeInterval(burnedDateInt))
+      burnedDate = Date(timeIntervalSince1970: TimeInterval(burnedDateInt))
     }
     
     meaningCorrect = (dict[UserSpecific.keyMeaningCorrect] as? Int)

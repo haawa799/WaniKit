@@ -20,9 +20,9 @@ public struct WaniKitConstants {
   }
 }
 
-public enum WaniApiError: ErrorType {
-  case ServerError
-  case ObjectSereliazationError
+public enum WaniApiError: ErrorProtocol {
+  case serverError
+  case objectSereliazationError
 }
 
 public protocol WaniApiManagerDelegate: class {
@@ -41,7 +41,7 @@ public class WaniApiManager {
   }
   
   private var testBaseURL: String?
-  private let identifier = NSUUID().UUIDString
+  private let identifier = UUID().uuidString
   
   public init(testBaseURL: String? = nil) {
     self.testBaseURL = testBaseURL
@@ -49,109 +49,109 @@ public class WaniApiManager {
   
   public weak var delegate: WaniApiManagerDelegate?
   
-  public private(set) var getStudyQueueOperation: GetStudyQueueOperation?
-  public private(set) var getLevelProgressionOperation: GetLevelProgressionOperation?
-  public private(set) var getUserInfoOperation: GetUserInfoOperation?
-  public private(set) var getKanjiListOperation: GetKanjiListOperation?
-  public private(set) var getRadicalsListOperation: GetRadicalsListOperation?
-  public private(set) var getVocabListOperation: GetVocabListOperation?
-  public private(set) var getCriticalItemsOperation: GetCriticalItemsOperation?
-  public private(set) var operationQueue: OperationQueue = {
-    let q = OperationQueue()
+  public private(set) var getStudyQueueAppleOperation: GetStudyQueueAppleOperation?
+  public private(set) var getLevelProgressionAppleOperation: GetLevelProgressionAppleOperation?
+  public private(set) var getUserInfoAppleOperation: GetUserInfoAppleOperation?
+  public private(set) var getKanjiListAppleOperation: GetKanjiListAppleOperation?
+  public private(set) var getRadicalsListAppleOperation: GetRadicalsListAppleOperation?
+  public private(set) var getVocabListAppleOperation: GetVocabListAppleOperation?
+  public private(set) var getCriticalItemsAppleOperation: GetCriticalItemsAppleOperation?
+  public private(set) var operationQueue: AppleAppleOperationQueue = {
+    let q = AppleAppleOperationQueue()
     q.maxConcurrentOperationCount = 1
     return q
   }()
   
   // MARK: - Public API
   
-  public func setApiKey(key: String?) {
+  public func setApiKey(_ key: String?) {
     myKey = key
     if key != nil {
       delegate?.apiKeyWasSet()
     }
   }
   
-  public func fetchStudyQueue(handler: StudyQueueRecieveBlock) {
+  public func fetchStudyQueue(_ handler: StudyQueueRecieveBlock) {
     guard let baseURL = baseURL else {
       return
     }
     
-    if (getStudyQueueOperation == nil) || (getStudyQueueOperation?.finished == true) {
-      getStudyQueueOperation = GetStudyQueueOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
-      getStudyQueueOperation?.userInitiated = true
-      operationQueue.addOperation(getStudyQueueOperation!)
+    if (getStudyQueueAppleOperation == nil) || (getStudyQueueAppleOperation?.isFinished == true) {
+      getStudyQueueAppleOperation = GetStudyQueueAppleOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
+      getStudyQueueAppleOperation?.userInitiated = true
+      operationQueue.addOperation(getStudyQueueAppleOperation!)
     }
   }
   
-  public func fetchLevelProgression(handler: LevelProgressionRecieveBlock) {
+  public func fetchLevelProgression(_ handler: LevelProgressionRecieveBlock) {
     guard let baseURL = baseURL else {
       return
     }
     
-    if (getLevelProgressionOperation == nil) || (getLevelProgressionOperation?.finished == true) {
-      getLevelProgressionOperation = GetLevelProgressionOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
-      getLevelProgressionOperation?.userInitiated = true
-      operationQueue.addOperation(getLevelProgressionOperation!)
+    if (getLevelProgressionAppleOperation == nil) || (getLevelProgressionAppleOperation?.isFinished == true) {
+      getLevelProgressionAppleOperation = GetLevelProgressionAppleOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
+      getLevelProgressionAppleOperation?.userInitiated = true
+      operationQueue.addOperation(getLevelProgressionAppleOperation!)
     }
   }
   
-  public func fetchUserInfo(handler: UserInfoResponseHandler) {
+  public func fetchUserInfo(_ handler: UserInfoResponseHandler) {
     guard let baseURL = baseURL else {
       return
     }
     
-    if (getUserInfoOperation == nil) || (getUserInfoOperation?.finished == true) {
-      getUserInfoOperation = GetUserInfoOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
-      getUserInfoOperation?.userInitiated = true
-      operationQueue.addOperation(getUserInfoOperation!)
+    if (getUserInfoAppleOperation == nil) || (getUserInfoAppleOperation?.isFinished == true) {
+      getUserInfoAppleOperation = GetUserInfoAppleOperation(baseURL: baseURL, cacheFilePrefix: identifier, handler: handler)
+      getUserInfoAppleOperation?.userInitiated = true
+      operationQueue.addOperation(getUserInfoAppleOperation!)
     }
   }
   
-  public func fetchKanjiList(level: Int, handler: KanjiListResponseHandler) {
+  public func fetchKanjiList(_ level: Int, handler: KanjiListResponseHandler) {
     guard let baseURL = baseURL else {
       return
     }
     
-    if (getKanjiListOperation == nil) || (getKanjiListOperation?.finished == true) {
-      getKanjiListOperation = GetKanjiListOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
-      getKanjiListOperation?.userInitiated = true
-      operationQueue.addOperation(getKanjiListOperation!)
+    if (getKanjiListAppleOperation == nil) || (getKanjiListAppleOperation?.isFinished == true) {
+      getKanjiListAppleOperation = GetKanjiListAppleOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
+      getKanjiListAppleOperation?.userInitiated = true
+      operationQueue.addOperation(getKanjiListAppleOperation!)
     }
   }
   
-  public func fetchRadicalsList(level: Int, handler: RadicalsListResponseHandler) {
+  public func fetchRadicalsList(_ level: Int, handler: RadicalsListResponseHandler) {
     guard let baseURL = baseURL else {
       return
     }
     
-    if (getRadicalsListOperation == nil) || (getRadicalsListOperation?.finished == true) {
-      getRadicalsListOperation = GetRadicalsListOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
-      getRadicalsListOperation?.userInitiated = true
-      operationQueue.addOperation(getRadicalsListOperation!)
+    if (getRadicalsListAppleOperation == nil) || (getRadicalsListAppleOperation?.isFinished == true) {
+      getRadicalsListAppleOperation = GetRadicalsListAppleOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
+      getRadicalsListAppleOperation?.userInitiated = true
+      operationQueue.addOperation(getRadicalsListAppleOperation!)
     }
   }
   
-  public func fetchVocabList(level: Int, handler: VocabListResponseHandler) {
+  public func fetchVocabList(_ level: Int, handler: VocabListResponseHandler) {
     guard let baseURL = baseURL else {
       return
     }
     
-    if (getVocabListOperation == nil) || (getVocabListOperation?.finished == true) {
-      getVocabListOperation = GetVocabListOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
-      getVocabListOperation?.userInitiated = true
-      operationQueue.addOperation(getVocabListOperation!)
+    if (getVocabListAppleOperation == nil) || (getVocabListAppleOperation?.isFinished == true) {
+      getVocabListAppleOperation = GetVocabListAppleOperation(baseURL: baseURL, level: level, cacheFilePrefix: identifier, handler: handler)
+      getVocabListAppleOperation?.userInitiated = true
+      operationQueue.addOperation(getVocabListAppleOperation!)
     }
   }
   
-  public func fetchCriticalItems(percentage: Int, handler: CriticalItemsResponseHandler) {
+  public func fetchCriticalItems(_ percentage: Int, handler: CriticalItemsResponseHandler) {
     guard let baseURL = baseURL else {
       return
     }
     
-    if (getCriticalItemsOperation == nil) || (getCriticalItemsOperation?.finished == true) {
-      getCriticalItemsOperation = GetCriticalItemsOperation(baseURL: baseURL, percentage: percentage, cacheFilePrefix: identifier, handler: handler)
-      getCriticalItemsOperation?.userInitiated = true
-      operationQueue.addOperation(getCriticalItemsOperation!)
+    if (getCriticalItemsAppleOperation == nil) || (getCriticalItemsAppleOperation?.isFinished == true) {
+      getCriticalItemsAppleOperation = GetCriticalItemsAppleOperation(baseURL: baseURL, percentage: percentage, cacheFilePrefix: identifier, handler: handler)
+      getCriticalItemsAppleOperation?.userInitiated = true
+      operationQueue.addOperation(getCriticalItemsAppleOperation!)
     }
   }
   

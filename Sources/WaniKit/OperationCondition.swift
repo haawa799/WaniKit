@@ -3,21 +3,21 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file contains the fundamental logic relating to Operation conditions.
+This file contains the fundamental logic relating to AppleOperation conditions.
 */
 
 import Foundation
 
-let OperationConditionKey = "OperationCondition"
+let AppleOperationConditionKey = "AppleOperationCondition"
 
 /**
     A protocol for defining conditions that must be satisfied in order for an
     operation to begin execution.
 */
-public protocol OperationCondition {
+public protocol AppleOperationCondition {
     /**
         The name of the condition. This is used in userInfo dictionaries of `.ConditionFailed`
-        errors as the value of the `OperationConditionKey` key.
+        errors as the value of the `AppleOperationConditionKey` key.
     */
     static var name: String { get }
     
@@ -32,29 +32,29 @@ public protocol OperationCondition {
         operation is executed first. Use this method to return an operation that
         (for example) asks for permission to perform the operation
         
-        - parameter operation: The `Operation` to which the Condition has been added.
+        - parameter operation: The `AppleOperation` to which the Condition has been added.
         - returns: An `NSOperation`, if a dependency should be automatically added. Otherwise, `nil`.
         - note: Only a single operation may be returned as a dependency. If you
             find that you need to return multiple operations, then you should be
             expressing that as multiple conditions. Alternatively, you could return
-            a single `GroupOperation` that executes multiple operations internally.
+            a single `GroupAppleOperation` that executes multiple operations internally.
     */
-    func dependencyForOperation(operation: Operation) -> NSOperation?
+    func dependencyForAppleOperation(_ operation: AppleOperation) -> Operation?
     
     /// Evaluate the condition, to see if it has been satisfied or not.
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void)
+    func evaluateForAppleOperation(_ operation: AppleOperation, completion: (AppleOperationConditionResult) -> Void)
 }
 
 /**
-    An enum to indicate whether an `OperationCondition` was satisfied, or if it
+    An enum to indicate whether an `AppleOperationCondition` was satisfied, or if it
     failed with an error.
 */
-public enum OperationConditionResult: Equatable {
-    case Satisfied
-    case Failed(NSError)
+public enum AppleOperationConditionResult: Equatable {
+    case satisfied
+    case failed(NSError)
     
     var error: NSError? {
-        if case .Failed(let error) = self {
+        if case .failed(let error) = self {
             return error
         }
         
@@ -62,11 +62,11 @@ public enum OperationConditionResult: Equatable {
     }
 }
 
-public func ==(lhs: OperationConditionResult, rhs: OperationConditionResult) -> Bool {
+public func ==(lhs: AppleOperationConditionResult, rhs: AppleOperationConditionResult) -> Bool {
     switch (lhs, rhs) {
-        case (.Satisfied, .Satisfied):
+        case (.satisfied, .satisfied):
             return true
-        case (.Failed(let lError), .Failed(let rError)) where lError == rError:
+        case (.failed(let lError), .failed(let rError)) where lError == rError:
             return true
         default:
             return false
@@ -75,24 +75,24 @@ public func ==(lhs: OperationConditionResult, rhs: OperationConditionResult) -> 
 
 // MARK: Evaluate Conditions
 
-public struct OperationConditionEvaluator {
-    static func evaluate(conditions: [OperationCondition], operation: Operation, completion: [NSError] -> Void) {
+public struct AppleOperationConditionEvaluator {
+    static func evaluate(_ conditions: [AppleOperationCondition], operation: AppleOperation, completion: ([NSError]) -> Void) {
         // Check conditions.
-        let conditionGroup = dispatch_group_create()
+        let conditionGroup = DispatchGroup()
 
-        var results = [OperationConditionResult?](count: conditions.count, repeatedValue: nil)
+        var results = [AppleOperationConditionResult?](repeating: nil, count: conditions.count)
         
         // Ask each condition to evaluate and store its result in the "results" array.
-        for (index, condition) in conditions.enumerate() {
-            dispatch_group_enter(conditionGroup)
-            condition.evaluateForOperation(operation) { result in
+        for (index, condition) in conditions.enumerated() {
+            conditionGroup.enter()
+            condition.evaluateForAppleOperation(operation) { result in
                 results[index] = result
-                dispatch_group_leave(conditionGroup)
+                conditionGroup.leave()
             }
         }
         
         // After all the conditions have evaluated, this block will execute.
-        dispatch_group_notify(conditionGroup, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+        conditionGroup.notify(queue: DispatchQueue.global(attributes: DispatchQueue.GlobalAttributes(rawValue: UInt64(Int(UInt64(DispatchQueueAttributes.qosDefault.rawValue)))))) {
             // Aggregate the errors that occurred, in order.
             var failures = results.flatMap { $0?.error }
             
@@ -100,8 +100,8 @@ public struct OperationConditionEvaluator {
                 If any of the conditions caused this operation to be cancelled,
                 check for that.
             */
-            if operation.cancelled {
-                failures.append(NSError(code: .ConditionFailed))
+            if operation.isCancelled {
+                failures.append(NSError(code: .conditionFailed))
             }
             
             completion(failures)

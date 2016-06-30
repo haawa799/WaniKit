@@ -3,7 +3,7 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-The file shows how to make an OperationCondition that composes another OperationCondition.
+The file shows how to make an AppleOperationCondition that composes another AppleOperationCondition.
 */
 
 import Foundation
@@ -13,7 +13,7 @@ import Foundation
  This is useful (for example) if you want to only execute an operation if the
  network is NOT reachable.
  */
-public struct NegatedCondition<T: OperationCondition>: OperationCondition {
+public struct NegatedCondition<T: AppleOperationCondition>: AppleOperationCondition {
   public static var name: String {
     return "Not<\(T.name)>"
   }
@@ -32,24 +32,24 @@ public struct NegatedCondition<T: OperationCondition>: OperationCondition {
     self.condition = condition
   }
   
-  public func dependencyForOperation(operation: Operation) -> NSOperation? {
-    return condition.dependencyForOperation(operation)
+  public func dependencyForAppleOperation(_ operation: AppleOperation) -> Operation? {
+    return condition.dependencyForAppleOperation(operation)
   }
   
-  public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
-    condition.evaluateForOperation(operation) { result in
-      if result == .Satisfied {
+  public func evaluateForAppleOperation(_ operation: AppleOperation, completion: (AppleOperationConditionResult) -> Void) {
+    condition.evaluateForAppleOperation(operation) { result in
+      if result == .satisfied {
         // If the composed condition succeeded, then this one failed.
-        let error = NSError(code: .ConditionFailed, userInfo: [
-          OperationConditionKey: self.dynamicType.name,
+        let error = NSError(code: .conditionFailed, userInfo: [
+          AppleOperationConditionKey: self.dynamicType.name,
           self.dynamicType.negatedConditionKey: self.condition.dynamicType.name
           ])
         
-        completion(.Failed(error))
+        completion(.failed(error))
       }
       else {
         // If the composed condition failed, then this one succeeded.
-        completion(.Satisfied)
+        completion(.satisfied)
       }
     }
   }

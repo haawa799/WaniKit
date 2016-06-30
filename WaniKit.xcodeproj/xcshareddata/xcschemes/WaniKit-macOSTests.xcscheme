@@ -16,9 +16,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43ABC3BD1C92C03500FC2AE7"
-               BuildableName = "WaniKitTests.xctest"
-               BlueprintName = "WaniKitTests"
+               BlueprintIdentifier = "43B2A5791D25B3E50021B4BD"
+               BuildableName = "WaniKit-macOSTests.xctest"
+               BlueprintName = "WaniKit-macOSTests"
                ReferencedContainer = "container:WaniKit.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -10,7 +10,7 @@ import Foundation
 
 protocol DictionaryConvertable {
   associatedtype T
-  static func entityFromDictionary(dict: NSDictionary) -> T?
+  static func entityFromDictionary(_ dict: NSDictionary) -> T?
 }
 
 public protocol DictionaryInitialization {
@@ -21,11 +21,6 @@ protocol ArrayInitialization {
   init(array: NSArray)
 }
 
-public func performWithDelay(delay: Double, closure: () -> Void) {
-  dispatch_after(
-    dispatch_time(
-      DISPATCH_TIME_NOW,
-      Int64(delay * Double(NSEC_PER_SEC))
-    ),
-    dispatch_get_main_queue(), closure)
+public func performWithDelay(_ delay: Double, closure: () -> Void) {
+  DispatchQueue.main.after(when: .now() + delay, execute: closure)
 }

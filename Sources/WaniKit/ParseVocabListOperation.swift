@@ -1,5 +1,5 @@
 //
-//  ParseUserInfoOperation.swift
+//  ParseUserInfoAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/14/15.
@@ -12,14 +12,14 @@ import Foundation
 public typealias VocabListResponse = (userInfo: UserInfo?, vocab: [WordInfo]?)
 public typealias VocabListResponseHandler = (Result<VocabListResponse, NSError>) -> Void
 
-public class ParseVocabListOperation: ParseOperation<VocabListResponse> {
+public class ParseVocabListAppleOperation: ParseAppleOperation<VocabListResponse> {
   
-  override init(cacheFile: NSURL, handler: ResponseHandler) {
+  override init(cacheFile: URL, handler: ResponseHandler) {
     super.init(cacheFile: cacheFile, handler: handler)
     name = "Parse Vocab list"
   }
   
-  override func parsedValue(rootDictionary: NSDictionary?) -> VocabListResponse? {
+  override func parsedValue(_ rootDictionary: NSDictionary?) -> VocabListResponse? {
     
     var user: UserInfo?
     if let userInfo = rootDictionary?[WaniKitConstants.ResponseKeys.UserInfoKey] as? NSDictionary {

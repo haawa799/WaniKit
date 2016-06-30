@@ -12,14 +12,14 @@ public typealias StudyQueueResponse = (userInfo: UserInfo?, studyQInfo: StudyQue
 public typealias StudyQueueRecieveBlock = (Result<StudyQueueResponse, NSError>) -> Void
 
 
-public class ParseStudyQueueOperation: ParseOperation<StudyQueueResponse> {
+public class ParseStudyQueueAppleOperation: ParseAppleOperation<StudyQueueResponse> {
   
-  override init(cacheFile: NSURL, handler: ResponseHandler) {
+  override init(cacheFile: URL, handler: ResponseHandler) {
     super.init(cacheFile: cacheFile, handler: handler)
     name = "Parse LevelProgression"
   }
   
-  override func parsedValue(rootDictionary: NSDictionary?) -> StudyQueueResponse? {
+  override func parsedValue(_ rootDictionary: NSDictionary?) -> StudyQueueResponse? {
     
     var user: UserInfo?
     var studyQ: StudyQueueInfo?

@@ -3,7 +3,7 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows an example of implementing the OperationCondition protocol.
+This file shows an example of implementing the AppleOperationCondition protocol.
 */
 
 import Foundation
@@ -14,34 +14,34 @@ import SystemConfiguration
     It does *not* perform a long-running reachability check, nor does it respond to changes in reachability.
     Reachability is evaluated once when the operation to which this is attached is asked about its readiness.
 */
-public struct ReachabilityCondition: OperationCondition {
+public struct ReachabilityCondition: AppleOperationCondition {
     public static let hostKey = "Host"
     public static let name = "Reachability"
     public static let isMutuallyExclusive = false
     
-    let host: NSURL
+    let host: URL
     
     
-    init(host: NSURL) {
+    init(host: URL) {
         self.host = host
     }
     
-    public func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForAppleOperation(_ operation: AppleOperation) -> Operation? {
         return nil
     }
     
-    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForAppleOperation(_ operation: AppleOperation, completion: (AppleOperationConditionResult) -> Void) {
         ReachabilityController.requestReachability(host) { reachable in
             if reachable {
-                completion(.Satisfied)
+                completion(.satisfied)
             }
             else {
-                let error = NSError(code: .ConditionFailed, userInfo: [
-                    OperationConditionKey: self.dynamicType.name,
+                let error = NSError(code: .conditionFailed, userInfo: [
+                    AppleOperationConditionKey: self.dynamicType.name,
                     self.dynamicType.hostKey: self.host
                 ])
                 
-                completion(.Failed(error))
+                completion(.failed(error))
             }
         }
     }
@@ -52,16 +52,16 @@ public struct ReachabilityCondition: OperationCondition {
 private class ReachabilityController {
     static var reachabilityRefs = [String: SCNetworkReachability]()
 
-    static let reachabilityQueue = dispatch_queue_create("Operations.Reachability", DISPATCH_QUEUE_SERIAL)
+    static let reachabilityQueue = DispatchQueue(label: "AppleOperations.Reachability", attributes: DispatchQueueAttributes.serial)
     
-    static func requestReachability(url: NSURL, completionHandler: (Bool) -> Void) {
+    static func requestReachability(_ url: URL, completionHandler: (Bool) -> Void) {
         if let host = url.host {
-            dispatch_async(reachabilityQueue) {
+            reachabilityQueue.async {
                 var ref = self.reachabilityRefs[host]
 
                 if ref == nil {
                     let hostString = host as NSString
-                    ref = SCNetworkReachabilityCreateWithName(nil, hostString.UTF8String)
+                    ref = SCNetworkReachabilityCreateWithName(nil, hostString.utf8String!)
                 }
                 
                 if let ref = ref {
@@ -76,7 +76,7 @@ private class ReachabilityController {
                             such as whether or not the connection would require
                             VPN, a cellular connection, etc.
                         */
-                        reachable = flags.contains(.Reachable)
+                        reachable = flags.contains(.reachable)
                     }
                     completionHandler(reachable)
                 }

@@ -1,5 +1,5 @@
 //
-//  DownloadOperation.swift
+//  DownloadAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/10/15.
@@ -9,52 +9,52 @@
 import Foundation
 
 public enum Result<T, U> {
-  case Response(() -> T)
-  case Error(() -> U)
+  case response(() -> T)
+  case error(() -> U)
 }
 
-public class DownloadOperation: GroupOperation {
+public class DownloadAppleOperation: GroupAppleOperation {
   
-  let cacheFile: NSURL
+  let cacheFile: URL
   
-  init(url: NSURL, cacheFile: NSURL) {
+  init(url: URL, cacheFile: URL) {
     
     print(url)
     self.cacheFile = cacheFile
     
     super.init(operations: [])
-    name = "Download Operation"
+    name = "Download AppleOperation"
     //
     
-    let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
-    let session = NSURLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-    let request = NSMutableURLRequest(URL: url)
-    request.HTTPMethod = "GET"
+    let sessionConfig = URLSessionConfiguration.default()
+    let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
     
-    let task = session.downloadTaskWithRequest(request) { (url, response, error) -> Void in
+    let task = session.downloadTask(with: request) { (url, response, error) -> Void in
       self.downloadFinished(url, response: response, error: error)
     }
     
-    let taskOperation = URLSessionTaskOperation(task: task)
+    let taskAppleOperation = URLSessionTaskAppleOperation(task: task)
     let reachabilityCondition = ReachabilityCondition(host: url)
-    taskOperation.addCondition(reachabilityCondition)
+    taskAppleOperation.addCondition(reachabilityCondition)
     
     let networkObserver = NetworkObserver()
-    taskOperation.addObserver(networkObserver)
+    taskAppleOperation.addObserver(networkObserver)
     
-    addOperation(taskOperation)
+    addOperation(taskAppleOperation)
   }
   
-  func downloadFinished(url: NSURL?, response: NSURLResponse?, error: NSError?) {
+  func downloadFinished(_ url: URL?, response: URLResponse?, error: NSError?) {
     
     if let localURL = url {
       do {
-        try NSFileManager.defaultManager().removeItemAtURL(cacheFile)
+        try FileManager.default().removeItem(at: cacheFile)
       }
       catch { }
       
       do {
-        try NSFileManager.defaultManager().moveItemAtURL(localURL, toURL: cacheFile)
+        try FileManager.default().moveItem(at: localURL, to: cacheFile)
       }
       catch let error as NSError {
         aggregateError(error)

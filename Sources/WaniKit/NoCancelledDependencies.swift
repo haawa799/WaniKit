@@ -3,7 +3,7 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows an example of implementing the OperationCondition protocol.
+This file shows an example of implementing the AppleOperationCondition protocol.
 */
 
 import Foundation
@@ -13,7 +13,7 @@ import Foundation
     If any dependency was cancelled, the target operation will be cancelled as
     well.
 */
-public struct NoCancelledDependencies: OperationCondition {
+public struct NoCancelledDependencies: AppleOperationCondition {
     public static let name = "NoCancelledDependencies"
     public static let cancelledDependenciesKey = "CancelledDependencies"
     public static let isMutuallyExclusive = false
@@ -22,25 +22,25 @@ public struct NoCancelledDependencies: OperationCondition {
         // No op.
     }
     
-    public func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForAppleOperation(_ operation: AppleOperation) -> Operation? {
         return nil
     }
     
-    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForAppleOperation(_ operation: AppleOperation, completion: (AppleOperationConditionResult) -> Void) {
         // Verify that all of the dependencies executed.
-        let cancelled = operation.dependencies.filter { $0.cancelled }
+        let cancelled = operation.dependencies.filter { $0.isCancelled }
 
         if !cancelled.isEmpty {
             // At least one dependency was cancelled; the condition was not satisfied.
-            let error = NSError(code: .ConditionFailed, userInfo: [
-                OperationConditionKey: self.dynamicType.name,
+            let error = NSError(code: .conditionFailed, userInfo: [
+                AppleOperationConditionKey: self.dynamicType.name,
                 self.dynamicType.cancelledDependenciesKey: cancelled
             ])
             
-            completion(.Failed(error))
+            completion(.failed(error))
         }
         else {
-            completion(.Satisfied)
+            completion(.satisfied)
         }
     }
 }

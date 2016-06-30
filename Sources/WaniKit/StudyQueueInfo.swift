@@ -20,7 +20,7 @@ public struct StudyQueueInfo {
   
   public var lessonsAvaliable: Int?
   public var reviewsAvaliable: Int?
-  public var nextReviewDate: NSDate?
+  public var nextReviewDate: Date?
   public var reviewsNextHour: Int?
   public var reviewsNextDay: Int?
   
@@ -32,7 +32,7 @@ extension StudyQueueInfo: DictionaryInitialization {
     lessonsAvaliable = (dict[StudyQueueInfo.keyAvaliableLessons] as? Int)
     reviewsAvaliable = (dict[StudyQueueInfo.keyAvaliableReviews] as? Int)
     if let reviewDate = dict[StudyQueueInfo.keyNextReviewDate] as? Int {
-      nextReviewDate = NSDate(timeIntervalSince1970: NSTimeInterval(reviewDate))
+      nextReviewDate = Date(timeIntervalSince1970: TimeInterval(reviewDate))
     }
     reviewsNextHour = (dict[StudyQueueInfo.keyReviewsNextHour] as? Int)
     reviewsNextDay = (dict[StudyQueueInfo.keyReviewsNextDay] as? Int)

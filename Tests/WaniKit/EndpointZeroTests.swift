@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import WaniKit
+@testable import WaniKit
 
 class EndpointZeroTests: XCTestCase {
   
@@ -25,14 +25,14 @@ class EndpointZeroTests: XCTestCase {
     // given
     var user: UserInfo!
     var studyQueue: StudyQueueInfo!
-    let expectation = expectationWithDescription("Study queue success")
+    let expectation = self.expectation(withDescription: "Study queue success")
     
     // when
     manager.fetchStudyQueue { (result) -> Void in
       switch result {
-      case .Error(let error):
+      case .error(let error):
         print(error())
-      case .Response(let response):
+      case .response(let response):
         
         expectation.fulfill()
         
@@ -57,22 +57,22 @@ class EndpointZeroTests: XCTestCase {
     }
     
     // then
-    waitForExpectationsWithTimeout(2.5, handler: nil)
+    waitForExpectations(withTimeout: 2.5, handler: nil)
   }
   
   func testLevelProgression() {
     // given
     var user: UserInfo!
     var levelProgress: LevelProgressionInfo!
-    let expectation = expectationWithDescription("Study queue success")
+    let expectation = self.expectation(withDescription: "Study queue success")
     
     // when
     
     manager.fetchLevelProgression { (result) -> Void in
       switch result {
-      case .Error(let error):
+      case .error(let error):
         print(error())
-      case .Response(let response):
+      case .response(let response):
         expectation.fulfill()
         let resp = response()
         if let userInfo = resp.userInfo {
@@ -92,16 +92,16 @@ class EndpointZeroTests: XCTestCase {
       }
     }
     // then
-    waitForExpectationsWithTimeout(2.5, handler: nil)
+    waitForExpectations(withTimeout: 2.5, handler: nil)
   }
   
   func q() {
     
     manager.fetchUserInfo { (result) -> Void in
       switch result {
-      case .Error(let error):
+      case .error(let error):
         print(error())
-      case .Response(let response):
+      case .response(let response):
         let resp = response()
         if let userInfo = resp {
           print(userInfo)
@@ -111,9 +111,9 @@ class EndpointZeroTests: XCTestCase {
     
     manager.fetchRadicalsList(7) { (result) -> Void in
       switch result {
-      case .Error(let error):
+      case .error(let error):
         print(error())
-      case .Response(let response):
+      case .response(let response):
         let resp = response()
         if let userInfo = resp.userInfo {
           print(userInfo)
@@ -126,9 +126,9 @@ class EndpointZeroTests: XCTestCase {
     
     manager.fetchKanjiList(8) { (result) -> Void in
       switch result {
-      case .Error(let error):
+      case .error(let error):
         print(error())
-      case .Response(let response):
+      case .response(let response):
         let resp = response()
         if let userInfo = resp.userInfo {
           print(userInfo)
@@ -141,9 +141,9 @@ class EndpointZeroTests: XCTestCase {
     
     manager.fetchVocabList(9) { (result) -> Void in
       switch result {
-      case .Error(let error):
+      case .error(let error):
         print(error())
-      case .Response(let response):
+      case .response(let response):
         let resp = response()
         if let userInfo = resp.userInfo {
           print(userInfo)
@@ -156,9 +156,9 @@ class EndpointZeroTests: XCTestCase {
     
     manager.fetchCriticalItems(85) { (result) -> Void in
       switch result {
-      case .Error(let error):
+      case .error(let error):
         print(error())
-      case .Response(let response):
+      case .response(let response):
         let resp = response()
         if let userInfo = resp.userInfo {
           print(userInfo)

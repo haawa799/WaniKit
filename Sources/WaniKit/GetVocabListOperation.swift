@@ -1,5 +1,5 @@
 //
-//  GetUserInfoOperation.swift
+//  GetUserInfoAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/14/15.
@@ -9,22 +9,22 @@
 import Foundation
 
 
-public class GetVocabListOperation: GroupOperation {
+public class GetVocabListAppleOperation: GroupAppleOperation {
   
-  let downloadOperation: DownloadVocabListOperation
-  let parseOperation: ParseVocabListOperation
+  let downloadAppleOperation: DownloadVocabListAppleOperation
+  let parseAppleOperation: ParseVocabListAppleOperation
   
   init(baseURL: String, level: Int, cacheFilePrefix: String?, handler: VocabListResponseHandler) {
     
-    let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(cacheFilePrefix)_vocabList_\(level).json")
+    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_vocabList_\(level).json")
     
-    let url = NSURL(string: "\(baseURL)/vocabulary/\(level)")!
-    downloadOperation = DownloadVocabListOperation(url: url, cacheFile: cacheFile)
-    parseOperation = ParseVocabListOperation(cacheFile: cacheFile, handler: handler)
-    parseOperation.addDependency(downloadOperation)
+    let url = URL(string: "\(baseURL)/vocabulary/\(level)")!
+    downloadAppleOperation = DownloadVocabListAppleOperation(url: url, cacheFile: cacheFile)
+    parseAppleOperation = ParseVocabListAppleOperation(cacheFile: cacheFile, handler: handler)
+    parseAppleOperation.addDependency(downloadAppleOperation)
     
-    super.init(operations: [downloadOperation, parseOperation])
+    super.init(operations: [downloadAppleOperation, parseAppleOperation])
     name = "Get Vocab List"
   }
   

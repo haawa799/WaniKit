@@ -8,23 +8,23 @@
 
 import Foundation
 
-public class GetStudyQueueOperation: GroupOperation {
+public class GetStudyQueueAppleOperation: GroupAppleOperation {
   
-  let downloadOperation: DownloadStudyQueueOperation
-  let parseOperation: ParseStudyQueueOperation
+  let downloadAppleOperation: DownloadStudyQueueAppleOperation
+  let parseAppleOperation: ParseStudyQueueAppleOperation
   
   init(baseURL: String, cacheFilePrefix: String?, handler: StudyQueueRecieveBlock) {
     
-    let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(cacheFilePrefix)_studyQueue.json")
+    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_studyQueue.json")
     
     
-    let url = NSURL(string: "\(baseURL)/study-queue")!
-    downloadOperation = DownloadStudyQueueOperation(url: url, cacheFile: cacheFile)
-    parseOperation = ParseStudyQueueOperation(cacheFile: cacheFile, handler: handler)
-    parseOperation.addDependency(downloadOperation)
+    let url = URL(string: "\(baseURL)/study-queue")!
+    downloadAppleOperation = DownloadStudyQueueAppleOperation(url: url, cacheFile: cacheFile)
+    parseAppleOperation = ParseStudyQueueAppleOperation(cacheFile: cacheFile, handler: handler)
+    parseAppleOperation.addDependency(downloadAppleOperation)
     
-    super.init(operations: [downloadOperation, parseOperation])
+    super.init(operations: [downloadAppleOperation, parseAppleOperation])
     name = "Get Study Queue"
   }
   

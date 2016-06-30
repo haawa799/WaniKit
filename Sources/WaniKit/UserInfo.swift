@@ -31,7 +31,7 @@ public struct UserInfo {
   public var twitter: String?
   public var topicsCount: Int?
   public var postsCount: Int?
-  public var creationDate: NSDate?
+  public var creationDate: Date?
   
 }
 
@@ -40,7 +40,7 @@ extension UserInfo: DictionaryInitialization {
   public init(dict: NSDictionary) {
     username = dict[UserInfo.keyUsername] as! String
     if let creation = dict[UserInfo.keyCreationDate] as? Int {
-      creationDate = NSDate(timeIntervalSince1970: NSTimeInterval(creation))
+      creationDate = Date(timeIntervalSince1970: TimeInterval(creation))
     }
     
     gravatar = (dict[UserInfo.keyGravatar] as? String)

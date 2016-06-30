@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0720"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,9 +16,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "43DAE2731C9592D800F090C4"
-               BuildableName = "WaniKitOSXTests.xctest"
-               BlueprintName = "WaniKit-OSXTests"
+               BlueprintIdentifier = "43B2A55D1D25B2E40021B4BD"
+               BuildableName = "WaniKit-tvOSTests.xctest"
+               BlueprintName = "WaniKit-tvOSTests"
                ReferencedContainer = "container:WaniKit.xcodeproj">
             </BuildableReference>
          </TestableReference>

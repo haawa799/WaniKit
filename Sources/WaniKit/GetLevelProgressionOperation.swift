@@ -1,5 +1,5 @@
 //
-//  GetLevelProgressionOperation.swift
+//  GetLevelProgressionAppleOperation.swift
 //  Pods
 //
 //  Created by Andriy K. on 12/10/15.
@@ -8,23 +8,23 @@
 
 import Foundation
 
-public class GetLevelProgressionOperation: GroupOperation {
+public class GetLevelProgressionAppleOperation: GroupAppleOperation {
   
-  let downloadOperation: DownloadLevelProgressionOperation
-  let parseOperation: ParseLevelProgressionOperation
+  let downloadAppleOperation: DownloadLevelProgressionAppleOperation
+  let parseAppleOperation: ParseLevelProgressionAppleOperation
   
   init(baseURL: String, cacheFilePrefix: String?, handler: LevelProgressionRecieveBlock) {
     
-    let cachesFolder = try! NSFileManager.defaultManager().URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
-    let cacheFile = cachesFolder.URLByAppendingPathComponent("\(cacheFilePrefix)_levelProgress.json")
+    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_levelProgress.json")
     
     
-    let url = NSURL(string: "\(baseURL)/level-progression")!
-    downloadOperation = DownloadLevelProgressionOperation(url: url, cacheFile: cacheFile)
-    parseOperation = ParseLevelProgressionOperation(cacheFile: cacheFile, handler: handler)
-    parseOperation.addDependency(downloadOperation)
+    let url = URL(string: "\(baseURL)/level-progression")!
+    downloadAppleOperation = DownloadLevelProgressionAppleOperation(url: url, cacheFile: cacheFile)
+    parseAppleOperation = ParseLevelProgressionAppleOperation(cacheFile: cacheFile, handler: handler)
+    parseAppleOperation.addDependency(downloadAppleOperation)
     
-    super.init(operations: [downloadOperation, parseOperation])
+    super.init(operations: [downloadAppleOperation, parseAppleOperation])
     name = "Get Level progression"
   }
   
