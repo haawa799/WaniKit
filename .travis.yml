@@ -2,21 +2,21 @@ language: objective-c
 osx_image: xcode8
 xcode_project: WaniKit.xcodeproj
 xcode_scheme:
-    - WaniKit
-    - WaniKit-macOS
-    - WaniKit-tvOS
+    - WaniKitTests
+    - WaniKit-macOSTests
+    - WaniKit-tvOSTests
 xcode_sdk:
     - iphonesimulator10.0
     - macosx10.11
     - tvos10.0
 matrix:
      exclude:
-           - xcode_scheme: WaniKit
+           - xcode_scheme: WaniKitTests
              xcode_sdk: macosx10.11
              xcode_sdk: tvos10.0
-           - xcode_scheme: WaniKit-macOS
+           - xcode_scheme: WaniKit-macOSTests
              xcode_sdk: iphonesimulator10.0
              xcode_sdk: tvos10.0
-           - xcode_scheme: WaniKit-tvOS
+           - xcode_scheme: WaniKit-tvOSTests
              xcode_sdk: macosx10.11
              xcode_sdk: iphonesimulator10.0
