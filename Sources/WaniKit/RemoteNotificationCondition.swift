@@ -26,13 +26,13 @@ public struct RemoteNotificationCondition: AppleOperationCondition {
     public static let isMutuallyExclusive = false
     
     public static func didReceiveNotificationToken(_ token: Data) {
-        NotificationCenter.default().post(name: Notification.Name(rawValue: RemoteNotificationName), object: nil, userInfo: [
+        NotificationCenter.default.post(name: Notification.Name(rawValue: RemoteNotificationName), object: nil, userInfo: [
             "token": token
         ])
     }
     
     public static func didFailToRegister(_ error: NSError) {
-        NotificationCenter.default().post(name: Notification.Name(rawValue: RemoteNotificationName), object: nil, userInfo: [
+        NotificationCenter.default.post(name: Notification.Name(rawValue: RemoteNotificationName), object: nil, userInfo: [
             "error": error
         ])
     }
@@ -99,16 +99,16 @@ private class RemoteNotificationPermissionAppleOperation: AppleOperation {
     
     override func execute() {
         DispatchQueue.main.async {
-            let notificationCenter = NotificationCenter.default()
+            let notificationCenter = NotificationCenter.default
             
-            notificationCenter.addObserver(self, selector: #selector(RemoteNotificationPermissionAppleOperation.didReceiveResponse(_:)), name: RemoteNotificationName, object: nil)
+            notificationCenter.addObserver(self, selector: #selector(RemoteNotificationPermissionAppleOperation.didReceiveResponse(_:)), name: NSNotification.Name(rawValue: RemoteNotificationName), object: nil)
             
             self.application.registerForRemoteNotifications()
         }
     }
     
     @objc func didReceiveResponse(_ notification: Notification) {
-        NotificationCenter.default().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         
         let userInfo = (notification as NSNotification).userInfo
 
