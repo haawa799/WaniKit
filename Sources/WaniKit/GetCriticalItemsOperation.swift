@@ -16,7 +16,7 @@ public class GetCriticalItemsAppleOperation: GroupAppleOperation {
   
   init(baseURL: String, percentage: Int, cacheFilePrefix: String?, handler: CriticalItemsResponseHandler) {
     
-    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cachesFolder = try! FileManager.default.urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_criticalItems_\(percentage).json")
     
     let url = URL(string: "\(baseURL)/critical-items/\(percentage)")!

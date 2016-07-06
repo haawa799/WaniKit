@@ -15,7 +15,7 @@ public class GetStudyQueueAppleOperation: GroupAppleOperation {
   
   init(baseURL: String, cacheFilePrefix: String?, handler: StudyQueueRecieveBlock) {
     
-    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cachesFolder = try! FileManager.default.urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_studyQueue.json")
     
     

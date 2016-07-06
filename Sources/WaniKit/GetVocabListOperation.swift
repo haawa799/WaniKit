@@ -16,7 +16,7 @@ public class GetVocabListAppleOperation: GroupAppleOperation {
   
   init(baseURL: String, level: Int, cacheFilePrefix: String?, handler: VocabListResponseHandler) {
     
-    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cachesFolder = try! FileManager.default.urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_vocabList_\(level).json")
     
     let url = URL(string: "\(baseURL)/vocabulary/\(level)")!

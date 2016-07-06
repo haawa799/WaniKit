@@ -16,7 +16,7 @@ public class GetKanjiListAppleOperation: GroupAppleOperation {
   
   init(baseURL: String, level: Int, cacheFilePrefix: String?, handler: KanjiListResponseHandler) {
     
-    let cachesFolder = try! FileManager.default().urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    let cachesFolder = try! FileManager.default.urlForDirectory(.cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
     let cacheFile = try! cachesFolder.appendingPathComponent("\(cacheFilePrefix)_kanjiList_\(level).json")
     
     let url = URL(string: "\(baseURL)/kanji/\(level)")!

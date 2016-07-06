@@ -52,7 +52,7 @@ private class NetworkIndicatorController {
   // MARK: Methods
   
   func networkActivityDidStart() {
-    assert(Thread.isMainThread(), "Altering network activity indicator state can only be done on the main thread.")
+    assert(Thread.isMainThread, "Altering network activity indicator state can only be done on the main thread.")
     
     activityCount += 1
     
@@ -60,7 +60,7 @@ private class NetworkIndicatorController {
   }
   
   func networkActivityDidEnd() {
-    assert(Thread.isMainThread(), "Altering network activity indicator state can only be done on the main thread.")
+    assert(Thread.isMainThread, "Altering network activity indicator state can only be done on the main thread.")
     
     activityCount -= 1
     

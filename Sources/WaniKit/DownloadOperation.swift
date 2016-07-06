@@ -26,7 +26,7 @@ public class DownloadAppleOperation: GroupAppleOperation {
     name = "Download AppleOperation"
     //
     
-    let sessionConfig = URLSessionConfiguration.default()
+    let sessionConfig = URLSessionConfiguration.default
     let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
@@ -49,12 +49,12 @@ public class DownloadAppleOperation: GroupAppleOperation {
     
     if let localURL = url {
       do {
-        try FileManager.default().removeItem(at: cacheFile)
+        try FileManager.default.removeItem(at: cacheFile)
       }
       catch { }
       
       do {
-        try FileManager.default().moveItem(at: localURL, to: cacheFile)
+        try FileManager.default.moveItem(at: localURL, to: cacheFile)
       }
       catch let error as NSError {
         aggregateError(error)
