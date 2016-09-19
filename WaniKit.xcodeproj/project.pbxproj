@@ -83,6 +83,13 @@
 			remoteGlobalIDString = 4308BBE11D85EC090048A257;
 			remoteInfo = WaniKit;
 		};
+		431FB9A11D8FF89D00D4B16D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4356D1351D82AFCD00B3766C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 436F56121D8FD65000C90C3F;
+			remoteInfo = WaniModel;
+		};
 		436F56181D8FD65000C90C3F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4356D1351D82AFCD00B3766C /* Project object */;
@@ -485,6 +492,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				431FB9A21D8FF89D00D4B16D /* PBXTargetDependency */,
 			);
 			name = WaniKit;
 			productName = WaniKit;
@@ -702,6 +710,11 @@
 			isa = PBXTargetDependency;
 			target = 4308BBE11D85EC090048A257 /* WaniKit */;
 			targetProxy = 4308BBF51D85EC090048A257 /* PBXContainerItemProxy */;
+		};
+		431FB9A21D8FF89D00D4B16D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 436F56121D8FD65000C90C3F /* WaniModel */;
+			targetProxy = 431FB9A11D8FF89D00D4B16D /* PBXContainerItemProxy */;
 		};
 		436F56191D8FD65000C90C3F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1023,6 +1036,7 @@
 				436F561D1D8FD65000C90C3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
