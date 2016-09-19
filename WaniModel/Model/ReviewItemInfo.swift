@@ -21,7 +21,7 @@ public enum ReviewItemInfo {
   case word(WordInfo)
   case radical(RadicalInfo)
   
-  init?(dict: [String : AnyObject]) {
+  public init?(dict: [String : AnyObject]) {
     guard let type = dict[DictKeys.type] as? String else { return nil }
     switch type {
     case DictKeys.radical:

@@ -16,13 +16,6 @@
 		4308BBF41D85EC090048A257 /* WaniKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4308BBE41D85EC090048A257 /* WaniKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4308BBF71D85EC090048A257 /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4308BBE21D85EC090048A257 /* WaniKit.framework */; };
 		4308BBF81D85EC090048A257 /* WaniKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4308BBE21D85EC090048A257 /* WaniKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4308BC111D85EC2E0048A257 /* KanjiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC011D85EC2E0048A257 /* KanjiInfo.swift */; };
-		4308BC121D85EC2E0048A257 /* LevelProgressionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC021D85EC2E0048A257 /* LevelProgressionInfo.swift */; };
-		4308BC131D85EC2E0048A257 /* RadicalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC031D85EC2E0048A257 /* RadicalInfo.swift */; };
-		4308BC141D85EC2E0048A257 /* StudyQueueInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC041D85EC2E0048A257 /* StudyQueueInfo.swift */; };
-		4308BC151D85EC2E0048A257 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC051D85EC2E0048A257 /* UserInfo.swift */; };
-		4308BC161D85EC2E0048A257 /* UserSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC061D85EC2E0048A257 /* UserSpecific.swift */; };
-		4308BC171D85EC2E0048A257 /* WordlInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC071D85EC2E0048A257 /* WordlInfo.swift */; };
 		4308BC181D85EC2E0048A257 /* BaseGetOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC091D85EC2E0048A257 /* BaseGetOperation.swift */; };
 		4308BC191D85EC2E0048A257 /* NetworkOperationResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC0A1D85EC2E0048A257 /* NetworkOperationResponseCode.swift */; };
 		4308BC1A1D85EC2E0048A257 /* NetworkRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4308BC0B1D85EC2E0048A257 /* NetworkRequestOperation.swift */; };
@@ -34,6 +27,20 @@
 		4308BC261D85EDD00048A257 /* PSOperations.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4356D1911D82D42500B3766C /* PSOperations.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		43371D7C1D8696950030618F /* LevelProgressionGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43371D791D8696950030618F /* LevelProgressionGroupOperation.swift */; };
 		43371D7E1D8696950030618F /* ParseLevelProgressionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43371D7B1D8696950030618F /* ParseLevelProgressionOperation.swift */; };
+		436F56171D8FD65000C90C3F /* WaniModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 436F56151D8FD65000C90C3F /* WaniModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		436F561A1D8FD65000C90C3F /* WaniModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436F56131D8FD65000C90C3F /* WaniModel.framework */; };
+		436F561B1D8FD65000C90C3F /* WaniModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 436F56131D8FD65000C90C3F /* WaniModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		436F562B1D8FD67400C90C3F /* DashboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56201D8FD67400C90C3F /* DashboardInfo.swift */; };
+		436F562C1D8FD67400C90C3F /* KanjiInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56211D8FD67400C90C3F /* KanjiInfo.swift */; };
+		436F562D1D8FD67400C90C3F /* LevelProgressionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56221D8FD67400C90C3F /* LevelProgressionInfo.swift */; };
+		436F562E1D8FD67400C90C3F /* RadicalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56231D8FD67400C90C3F /* RadicalInfo.swift */; };
+		436F562F1D8FD67400C90C3F /* ReviewItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56241D8FD67400C90C3F /* ReviewItemInfo.swift */; };
+		436F56301D8FD67400C90C3F /* SRSDistributionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56251D8FD67400C90C3F /* SRSDistributionInfo.swift */; };
+		436F56311D8FD67400C90C3F /* SRSLevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56261D8FD67400C90C3F /* SRSLevelInfo.swift */; };
+		436F56321D8FD67400C90C3F /* StudyQueueInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56271D8FD67400C90C3F /* StudyQueueInfo.swift */; };
+		436F56331D8FD67400C90C3F /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56281D8FD67400C90C3F /* UserInfo.swift */; };
+		436F56341D8FD67400C90C3F /* UserSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F56291D8FD67400C90C3F /* UserSpecific.swift */; };
+		436F56351D8FD67400C90C3F /* WordlInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F562A1D8FD67400C90C3F /* WordlInfo.swift */; };
 		43C739D61D86E4E2006F135A /* ParseStudyQueueOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C739D31D86E4E2006F135A /* ParseStudyQueueOperation.swift */; };
 		43C739D71D86E4E2006F135A /* StudyQueueGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C739D41D86E4E2006F135A /* StudyQueueGroupOperation.swift */; };
 		43CD20FA1D87CB0C003E7DF0 /* KanjiListGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD20F71D87CB0C003E7DF0 /* KanjiListGroupOperation.swift */; };
@@ -44,15 +51,11 @@
 		43CD210A1D87F636003E7DF0 /* ParseWordListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21071D87F636003E7DF0 /* ParseWordListOperation.swift */; };
 		43CD210B1D87F636003E7DF0 /* WordListGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21081D87F636003E7DF0 /* WordListGroupOperation.swift */; };
 		43CD210F1D87FEA9003E7DF0 /* DashboardInfoGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD210E1D87FEA9003E7DF0 /* DashboardInfoGroupOperation.swift */; };
-		43CD21111D87FEC6003E7DF0 /* DashboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21101D87FEC6003E7DF0 /* DashboardInfo.swift */; };
-		43CD21131D880CFF003E7DF0 /* ReviewItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21121D880CFF003E7DF0 /* ReviewItemInfo.swift */; };
 		43CD21181D88104D003E7DF0 /* CriticalItemsGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21151D88104D003E7DF0 /* CriticalItemsGroupOperation.swift */; };
 		43CD211A1D88104D003E7DF0 /* ParseCriticalItemsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21171D88104D003E7DF0 /* ParseCriticalItemsOperation.swift */; };
 		43CD211F1D88136C003E7DF0 /* ParseRecentUnlocksOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD211C1D88136C003E7DF0 /* ParseRecentUnlocksOperation.swift */; };
 		43CD21201D88136C003E7DF0 /* RecentUnlocksGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD211D1D88136C003E7DF0 /* RecentUnlocksGroupOperation.swift */; };
 		43CD21241D881585003E7DF0 /* LastLevelUpGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21231D881585003E7DF0 /* LastLevelUpGroupOperation.swift */; };
-		43CD21261D881AD4003E7DF0 /* SRSDistributionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21251D881AD4003E7DF0 /* SRSDistributionInfo.swift */; };
-		43CD21281D881D62003E7DF0 /* SRSLevelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD21271D881D62003E7DF0 /* SRSLevelInfo.swift */; };
 		43CD212C1D881EE3003E7DF0 /* ParseSRSDistributionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD212A1D881EE3003E7DF0 /* ParseSRSDistributionOperation.swift */; };
 		43CD212D1D881EE3003E7DF0 /* SRSDistributionGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD212B1D881EE3003E7DF0 /* SRSDistributionGroupOperation.swift */; };
 		43CD21301D88224C003E7DF0 /* AllKanjiGroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CD212F1D88224C003E7DF0 /* AllKanjiGroupOperation.swift */; };
@@ -80,6 +83,13 @@
 			remoteGlobalIDString = 4308BBE11D85EC090048A257;
 			remoteInfo = WaniKit;
 		};
+		436F56181D8FD65000C90C3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4356D1351D82AFCD00B3766C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 436F56121D8FD65000C90C3F;
+			remoteInfo = WaniModel;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +100,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4308BBF81D85EC090048A257 /* WaniKit.framework in Embed Frameworks */,
+				436F561B1D8FD65000C90C3F /* WaniModel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,13 +130,6 @@
 		4308BBE51D85EC090048A257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4308BBEA1D85EC090048A257 /* WaniKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WaniKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4308BBF31D85EC090048A257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4308BC011D85EC2E0048A257 /* KanjiInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiInfo.swift; sourceTree = "<group>"; };
-		4308BC021D85EC2E0048A257 /* LevelProgressionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProgressionInfo.swift; sourceTree = "<group>"; };
-		4308BC031D85EC2E0048A257 /* RadicalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadicalInfo.swift; sourceTree = "<group>"; };
-		4308BC041D85EC2E0048A257 /* StudyQueueInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueueInfo.swift; sourceTree = "<group>"; };
-		4308BC051D85EC2E0048A257 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		4308BC061D85EC2E0048A257 /* UserSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSpecific.swift; sourceTree = "<group>"; };
-		4308BC071D85EC2E0048A257 /* WordlInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordlInfo.swift; sourceTree = "<group>"; };
 		4308BC091D85EC2E0048A257 /* BaseGetOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseGetOperation.swift; sourceTree = "<group>"; };
 		4308BC0A1D85EC2E0048A257 /* NetworkOperationResponseCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkOperationResponseCode.swift; sourceTree = "<group>"; };
 		4308BC0B1D85EC2E0048A257 /* NetworkRequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequestOperation.swift; sourceTree = "<group>"; };
@@ -136,6 +140,20 @@
 		43371D791D8696950030618F /* LevelProgressionGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProgressionGroupOperation.swift; sourceTree = "<group>"; };
 		43371D7B1D8696950030618F /* ParseLevelProgressionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLevelProgressionOperation.swift; sourceTree = "<group>"; };
 		4356D1911D82D42500B3766C /* PSOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSOperations.framework; path = Carthage/Build/iOS/PSOperations.framework; sourceTree = "<group>"; };
+		436F56131D8FD65000C90C3F /* WaniModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WaniModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		436F56151D8FD65000C90C3F /* WaniModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaniModel.h; sourceTree = "<group>"; };
+		436F56161D8FD65000C90C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		436F56201D8FD67400C90C3F /* DashboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInfo.swift; sourceTree = "<group>"; };
+		436F56211D8FD67400C90C3F /* KanjiInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiInfo.swift; sourceTree = "<group>"; };
+		436F56221D8FD67400C90C3F /* LevelProgressionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelProgressionInfo.swift; sourceTree = "<group>"; };
+		436F56231D8FD67400C90C3F /* RadicalInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadicalInfo.swift; sourceTree = "<group>"; };
+		436F56241D8FD67400C90C3F /* ReviewItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewItemInfo.swift; sourceTree = "<group>"; };
+		436F56251D8FD67400C90C3F /* SRSDistributionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRSDistributionInfo.swift; sourceTree = "<group>"; };
+		436F56261D8FD67400C90C3F /* SRSLevelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRSLevelInfo.swift; sourceTree = "<group>"; };
+		436F56271D8FD67400C90C3F /* StudyQueueInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueueInfo.swift; sourceTree = "<group>"; };
+		436F56281D8FD67400C90C3F /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		436F56291D8FD67400C90C3F /* UserSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSpecific.swift; sourceTree = "<group>"; };
+		436F562A1D8FD67400C90C3F /* WordlInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordlInfo.swift; sourceTree = "<group>"; };
 		43C739D31D86E4E2006F135A /* ParseStudyQueueOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseStudyQueueOperation.swift; sourceTree = "<group>"; };
 		43C739D41D86E4E2006F135A /* StudyQueueGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyQueueGroupOperation.swift; sourceTree = "<group>"; };
 		43CD20F71D87CB0C003E7DF0 /* KanjiListGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanjiListGroupOperation.swift; sourceTree = "<group>"; };
@@ -146,15 +164,11 @@
 		43CD21071D87F636003E7DF0 /* ParseWordListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseWordListOperation.swift; sourceTree = "<group>"; };
 		43CD21081D87F636003E7DF0 /* WordListGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListGroupOperation.swift; sourceTree = "<group>"; };
 		43CD210E1D87FEA9003E7DF0 /* DashboardInfoGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInfoGroupOperation.swift; sourceTree = "<group>"; };
-		43CD21101D87FEC6003E7DF0 /* DashboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInfo.swift; sourceTree = "<group>"; };
-		43CD21121D880CFF003E7DF0 /* ReviewItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewItemInfo.swift; sourceTree = "<group>"; };
 		43CD21151D88104D003E7DF0 /* CriticalItemsGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriticalItemsGroupOperation.swift; sourceTree = "<group>"; };
 		43CD21171D88104D003E7DF0 /* ParseCriticalItemsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseCriticalItemsOperation.swift; sourceTree = "<group>"; };
 		43CD211C1D88136C003E7DF0 /* ParseRecentUnlocksOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseRecentUnlocksOperation.swift; sourceTree = "<group>"; };
 		43CD211D1D88136C003E7DF0 /* RecentUnlocksGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentUnlocksGroupOperation.swift; sourceTree = "<group>"; };
 		43CD21231D881585003E7DF0 /* LastLevelUpGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastLevelUpGroupOperation.swift; sourceTree = "<group>"; };
-		43CD21251D881AD4003E7DF0 /* SRSDistributionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRSDistributionInfo.swift; sourceTree = "<group>"; };
-		43CD21271D881D62003E7DF0 /* SRSLevelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRSLevelInfo.swift; sourceTree = "<group>"; };
 		43CD212A1D881EE3003E7DF0 /* ParseSRSDistributionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseSRSDistributionOperation.swift; sourceTree = "<group>"; };
 		43CD212B1D881EE3003E7DF0 /* SRSDistributionGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRSDistributionGroupOperation.swift; sourceTree = "<group>"; };
 		43CD212F1D88224C003E7DF0 /* AllKanjiGroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllKanjiGroupOperation.swift; sourceTree = "<group>"; };
@@ -166,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4308BBF71D85EC090048A257 /* WaniKit.framework in Frameworks */,
+				436F561A1D8FD65000C90C3F /* WaniModel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +197,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4308BBEB1D85EC090048A257 /* WaniKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		436F560F1D8FD65000C90C3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +228,6 @@
 			children = (
 				43CD20FD1D87CCC6003E7DF0 /* WaniKitAPIManager.swift */,
 				43CD212E1D88224C003E7DF0 /* AllKanji */,
-				4308BC001D85EC2E0048A257 /* Model */,
 				43CD21291D881EE3003E7DF0 /* SRSDistribution */,
 				43CD21221D881585003E7DF0 /* LastLevelUp */,
 				43CD211B1D88136C003E7DF0 /* RecentUnlocks */,
@@ -232,24 +253,6 @@
 				4308BBF31D85EC090048A257 /* Info.plist */,
 			);
 			path = WaniKitTests;
-			sourceTree = "<group>";
-		};
-		4308BC001D85EC2E0048A257 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				4308BC031D85EC2E0048A257 /* RadicalInfo.swift */,
-				4308BC011D85EC2E0048A257 /* KanjiInfo.swift */,
-				4308BC071D85EC2E0048A257 /* WordlInfo.swift */,
-				4308BC021D85EC2E0048A257 /* LevelProgressionInfo.swift */,
-				4308BC041D85EC2E0048A257 /* StudyQueueInfo.swift */,
-				4308BC051D85EC2E0048A257 /* UserInfo.swift */,
-				4308BC061D85EC2E0048A257 /* UserSpecific.swift */,
-				43CD21101D87FEC6003E7DF0 /* DashboardInfo.swift */,
-				43CD21121D880CFF003E7DF0 /* ReviewItemInfo.swift */,
-				43CD21251D881AD4003E7DF0 /* SRSDistributionInfo.swift */,
-				43CD21271D881D62003E7DF0 /* SRSLevelInfo.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		4308BC081D85EC2E0048A257 /* Shared */ = {
@@ -287,6 +290,7 @@
 				4308BBBB1D85EAFC0048A257 /* AppForTests */,
 				4308BBE31D85EC090048A257 /* WaniKit */,
 				4308BBF01D85EC090048A257 /* WaniKitTests */,
+				436F56141D8FD65000C90C3F /* WaniModel */,
 				4356D13F1D82AFCD00B3766C /* Products */,
 				4356D1901D82D42500B3766C /* Frameworks */,
 			);
@@ -298,6 +302,7 @@
 				4308BBBA1D85EAFC0048A257 /* AppForTests.app */,
 				4308BBE21D85EC090048A257 /* WaniKit.framework */,
 				4308BBEA1D85EC090048A257 /* WaniKitTests.xctest */,
+				436F56131D8FD65000C90C3F /* WaniModel.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,6 +313,34 @@
 				4356D1911D82D42500B3766C /* PSOperations.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		436F56141D8FD65000C90C3F /* WaniModel */ = {
+			isa = PBXGroup;
+			children = (
+				436F561F1D8FD67400C90C3F /* Model */,
+				436F56151D8FD65000C90C3F /* WaniModel.h */,
+				436F56161D8FD65000C90C3F /* Info.plist */,
+			);
+			path = WaniModel;
+			sourceTree = "<group>";
+		};
+		436F561F1D8FD67400C90C3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				436F56201D8FD67400C90C3F /* DashboardInfo.swift */,
+				436F56211D8FD67400C90C3F /* KanjiInfo.swift */,
+				436F56221D8FD67400C90C3F /* LevelProgressionInfo.swift */,
+				436F56231D8FD67400C90C3F /* RadicalInfo.swift */,
+				436F56241D8FD67400C90C3F /* ReviewItemInfo.swift */,
+				436F56251D8FD67400C90C3F /* SRSDistributionInfo.swift */,
+				436F56261D8FD67400C90C3F /* SRSLevelInfo.swift */,
+				436F56271D8FD67400C90C3F /* StudyQueueInfo.swift */,
+				436F56281D8FD67400C90C3F /* UserInfo.swift */,
+				436F56291D8FD67400C90C3F /* UserSpecific.swift */,
+				436F562A1D8FD67400C90C3F /* WordlInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		43C739D21D86E4E2006F135A /* StudyQueue */ = {
@@ -408,6 +441,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		436F56101D8FD65000C90C3F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				436F56171D8FD65000C90C3F /* WaniModel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -424,6 +465,7 @@
 			);
 			dependencies = (
 				4308BBF61D85EC090048A257 /* PBXTargetDependency */,
+				436F56191D8FD65000C90C3F /* PBXTargetDependency */,
 			);
 			name = AppForTests;
 			productName = AppForTests;
@@ -468,6 +510,24 @@
 			productReference = 4308BBEA1D85EC090048A257 /* WaniKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		436F56121D8FD65000C90C3F /* WaniModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 436F561E1D8FD65000C90C3F /* Build configuration list for PBXNativeTarget "WaniModel" */;
+			buildPhases = (
+				436F560E1D8FD65000C90C3F /* Sources */,
+				436F560F1D8FD65000C90C3F /* Frameworks */,
+				436F56101D8FD65000C90C3F /* Headers */,
+				436F56111D8FD65000C90C3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WaniModel;
+			productName = WaniModel;
+			productReference = 436F56131D8FD65000C90C3F /* WaniModel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -494,6 +554,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4308BBB91D85EAFC0048A257;
 					};
+					436F56121D8FD65000C90C3F = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = S55BP53VB8;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 4356D1381D82AFCD00B3766C /* Build configuration list for PBXProject "WaniKit" */;
@@ -512,6 +577,7 @@
 				4308BBB91D85EAFC0048A257 /* AppForTests */,
 				4308BBE11D85EC090048A257 /* WaniKit */,
 				4308BBE91D85EC090048A257 /* WaniKitTests */,
+				436F56121D8FD65000C90C3F /* WaniModel */,
 			);
 		};
 /* End PBXProject section */
@@ -541,6 +607,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		436F56111D8FD65000C90C3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -557,21 +630,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43CD21131D880CFF003E7DF0 /* ReviewItemInfo.swift in Sources */,
-				4308BC131D85EC2E0048A257 /* RadicalInfo.swift in Sources */,
 				43CD210B1D87F636003E7DF0 /* WordListGroupOperation.swift in Sources */,
 				43CD211A1D88104D003E7DF0 /* ParseCriticalItemsOperation.swift in Sources */,
-				43CD21111D87FEC6003E7DF0 /* DashboardInfo.swift in Sources */,
 				4308BC191D85EC2E0048A257 /* NetworkOperationResponseCode.swift in Sources */,
 				43C739D61D86E4E2006F135A /* ParseStudyQueueOperation.swift in Sources */,
 				4308BC1C1D85EC2E0048A257 /* ParseUserInfoOperation.swift in Sources */,
 				43CD212C1D881EE3003E7DF0 /* ParseSRSDistributionOperation.swift in Sources */,
-				4308BC141D85EC2E0048A257 /* StudyQueueInfo.swift in Sources */,
 				43CD21241D881585003E7DF0 /* LastLevelUpGroupOperation.swift in Sources */,
 				43CD21181D88104D003E7DF0 /* CriticalItemsGroupOperation.swift in Sources */,
-				43CD21261D881AD4003E7DF0 /* SRSDistributionInfo.swift in Sources */,
 				43CD21041D87F4B6003E7DF0 /* RadicalListGroupOperation.swift in Sources */,
-				4308BC161D85EC2E0048A257 /* UserSpecific.swift in Sources */,
 				4308BC1B1D85EC2E0048A257 /* ParseOpertion.swift in Sources */,
 				4308BC1A1D85EC2E0048A257 /* NetworkRequestOperation.swift in Sources */,
 				43C739D71D86E4E2006F135A /* StudyQueueGroupOperation.swift in Sources */,
@@ -580,17 +647,12 @@
 				43CD21301D88224C003E7DF0 /* AllKanjiGroupOperation.swift in Sources */,
 				43CD20FC1D87CB0C003E7DF0 /* ParseKanjiListOperation.swift in Sources */,
 				43CD211F1D88136C003E7DF0 /* ParseRecentUnlocksOperation.swift in Sources */,
-				43CD21281D881D62003E7DF0 /* SRSLevelInfo.swift in Sources */,
-				4308BC121D85EC2E0048A257 /* LevelProgressionInfo.swift in Sources */,
 				4308BC1D1D85EC2E0048A257 /* UserInfoGroupOperation.swift in Sources */,
 				43CD21031D87F4B6003E7DF0 /* ParseRadicalListOperation.swift in Sources */,
-				4308BC171D85EC2E0048A257 /* WordlInfo.swift in Sources */,
 				43CD210F1D87FEA9003E7DF0 /* DashboardInfoGroupOperation.swift in Sources */,
 				43CD212D1D881EE3003E7DF0 /* SRSDistributionGroupOperation.swift in Sources */,
 				43CD21201D88136C003E7DF0 /* RecentUnlocksGroupOperation.swift in Sources */,
 				4308BC181D85EC2E0048A257 /* BaseGetOperation.swift in Sources */,
-				4308BC151D85EC2E0048A257 /* UserInfo.swift in Sources */,
-				4308BC111D85EC2E0048A257 /* KanjiInfo.swift in Sources */,
 				43371D7C1D8696950030618F /* LevelProgressionGroupOperation.swift in Sources */,
 				43CD20FE1D87CCC6003E7DF0 /* WaniKitAPIManager.swift in Sources */,
 				43CD210A1D87F636003E7DF0 /* ParseWordListOperation.swift in Sources */,
@@ -602,6 +664,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				4308BC201D85EC950048A257 /* WaniKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		436F560E1D8FD65000C90C3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				436F56341D8FD67400C90C3F /* UserSpecific.swift in Sources */,
+				436F56351D8FD67400C90C3F /* WordlInfo.swift in Sources */,
+				436F562F1D8FD67400C90C3F /* ReviewItemInfo.swift in Sources */,
+				436F56321D8FD67400C90C3F /* StudyQueueInfo.swift in Sources */,
+				436F562E1D8FD67400C90C3F /* RadicalInfo.swift in Sources */,
+				436F56311D8FD67400C90C3F /* SRSLevelInfo.swift in Sources */,
+				436F56301D8FD67400C90C3F /* SRSDistributionInfo.swift in Sources */,
+				436F562B1D8FD67400C90C3F /* DashboardInfo.swift in Sources */,
+				436F562C1D8FD67400C90C3F /* KanjiInfo.swift in Sources */,
+				436F56331D8FD67400C90C3F /* UserInfo.swift in Sources */,
+				436F562D1D8FD67400C90C3F /* LevelProgressionInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +702,11 @@
 			isa = PBXTargetDependency;
 			target = 4308BBE11D85EC090048A257 /* WaniKit */;
 			targetProxy = 4308BBF51D85EC090048A257 /* PBXContainerItemProxy */;
+		};
+		436F56191D8FD65000C90C3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 436F56121D8FD65000C90C3F /* WaniModel */;
+			targetProxy = 436F56181D8FD65000C90C3F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -854,6 +939,44 @@
 			};
 			name = Release;
 		};
+		436F561C1D8FD65000C90C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = S55BP53VB8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WaniModel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		436F561D1D8FD65000C90C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = S55BP53VB8;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = WaniModel/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.haawa.WaniModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -892,6 +1015,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		436F561E1D8FD65000C90C3F /* Build configuration list for PBXNativeTarget "WaniModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				436F561C1D8FD65000C90C3F /* Debug */,
+				436F561D1D8FD65000C90C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

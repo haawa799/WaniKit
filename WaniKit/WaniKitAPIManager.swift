@@ -8,6 +8,7 @@
 
 import Foundation
 import PSOperations
+import WaniModel
 
 public protocol WaniApiManagerDelegate: class {
   func apiKeyWasUsedBeforeItWasSet()

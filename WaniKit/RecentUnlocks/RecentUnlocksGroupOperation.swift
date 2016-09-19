@@ -2,6 +2,7 @@
 // Author:  Andrew Kharchyshyn <akharchyshyn@gmail.com>
 
 import Foundation
+import WaniModel
 
 public class RecentUnlocksGroupOperation: BaseGetOperation<[ReviewItemInfo]> {
   

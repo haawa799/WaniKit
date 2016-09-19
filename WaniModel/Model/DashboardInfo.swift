@@ -14,4 +14,10 @@ public struct DashboardInfo {
   public let studyQueueInfo: StudyQueueInfo
   public let lastLevelUpDate: Date?
   
+  public init(levelProgressionInfo: LevelProgressionInfo, studyQueueInfo: StudyQueueInfo, lastLevelUpDate: Date?) {
+    self.levelProgressionInfo = levelProgressionInfo
+    self.studyQueueInfo = studyQueueInfo
+    self.lastLevelUpDate = lastLevelUpDate
+  }
+  
 }

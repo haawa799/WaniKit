@@ -3,6 +3,7 @@
 
 import Foundation
 import PSOperations
+import WaniModel
 
 public class DashboardInfoGroupOperation: PSOperations.GroupOperation {
   
