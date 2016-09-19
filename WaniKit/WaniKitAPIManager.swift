@@ -17,6 +17,10 @@ public protocol WaniApiManagerDelegate: class {
 
 public struct WaniKitAPIManager {
   
+  public init() {
+    
+  }
+  
   struct WaniKitConstants {
     struct URL {
       static let BaseURL = "https://www.wanikani.com/api/user/"

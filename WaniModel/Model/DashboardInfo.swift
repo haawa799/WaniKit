@@ -12,11 +12,13 @@ public struct DashboardInfo {
   
   public let levelProgressionInfo: LevelProgressionInfo
   public let studyQueueInfo: StudyQueueInfo
+  public let srs: SRSDistributionInfo
   public let lastLevelUpDate: Date?
   
-  public init(levelProgressionInfo: LevelProgressionInfo, studyQueueInfo: StudyQueueInfo, lastLevelUpDate: Date?) {
+  public init(levelProgressionInfo: LevelProgressionInfo, studyQueueInfo: StudyQueueInfo, srs: SRSDistributionInfo, lastLevelUpDate: Date?) {
     self.levelProgressionInfo = levelProgressionInfo
     self.studyQueueInfo = studyQueueInfo
+    self.srs = srs
     self.lastLevelUpDate = lastLevelUpDate
   }
   

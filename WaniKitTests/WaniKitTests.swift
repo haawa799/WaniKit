@@ -35,6 +35,7 @@ class WaniKitTests: XCTestCase {
       XCTAssert(responseCode == .Success)
       XCTAssertNotNil(levelProgression?.kanjiProgress)
       XCTAssert((levelProgression!.kanjiProgress)! > 0)
+      XCTAssert((levelProgression!.currentLevel) == 20)
       expectation.fulfill()
     }
     waitForExpectations(timeout: 5.0, handler: nil)
@@ -88,9 +89,10 @@ class WaniKitTests: XCTestCase {
     apiManager.fetchDashboard { (dashboardInfo) in
       XCTAssertNotNil(dashboardInfo)
       XCTAssertNotNil(dashboardInfo!.lastLevelUpDate)
+      XCTAssertNotNil(dashboardInfo!.srs.burned.kanji > 0)
       expectation.fulfill()
     }
-    waitForExpectations(timeout: 5.0, handler: nil)
+    waitForExpectations(timeout: 8.0, handler: nil)
   }
   
   func testCriticalItemsList() {
