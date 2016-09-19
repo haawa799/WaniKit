@@ -24,13 +24,24 @@ public struct WaniKitAPIManager {
   }
   
   public let operationQueue = PSOperations.OperationQueue()
-  public let apiKey: String
+  private var _apiKey: String?
+  
+  public var apiKey: String? {
+    return _apiKey
+  }
+  
+  public mutating func changeApiKey(newKey: String) {
+    _apiKey = newKey
+  }
   
   var basicURL: URL {
+    guard let apiKey = apiKey else {
+      assert(true, "Set API key before using")
+      return URL(string: "")!
+    }
     let string = "\(WaniKitConstants.URL.BaseURL)\(apiKey)"
     return URL(string: string)!
   }
-  
   //MARK: - Methods
   public func fetchLevelProgression(handler: @escaping (LevelProgressionInfo?, NetworkOperationResponseCode?) -> Void) {
     let levelProgressionGroupOperation = LevelProgressionGroupOperation(baseURL: basicURL) { (progressionInfo, resopnseCode) in

@@ -8,11 +8,16 @@
 
 import XCTest
 @testable import WaniKit
+import WaniModel
 import PSOperations
 
 class WaniKitTests: XCTestCase {
   
-  let apiManager = WaniKitAPIManager(apiKey: "c6ce4072cf1bd37b407f2c86d69137e3")
+  let apiManager: WaniKitAPIManager = {
+    var manager = WaniKitAPIManager()
+    manager.changeApiKey(newKey: "c6ce4072cf1bd37b407f2c86d69137e3")
+    return manager
+  }()
   
   func testUserInfo() {
     let expectation = self.expectation(description: "user info OK")
@@ -130,21 +135,6 @@ class WaniKitTests: XCTestCase {
       expectation.fulfill()
     }
     waitForExpectations(timeout: 5.0, handler: nil)
-  }
-  
-  func testAllKanji() {
-    let expectation = self.expectation(description: "SRS OK")
-    
-    apiManager.fetchAllKanji { (kanji) in
-      for (index, levelKanji) in kanji {
-        if levelKanji.count <= 25 {
-          print(index)
-        }
-        XCTAssert(levelKanji.count > 25 )
-      }
-      expectation.fulfill()
-    }
-    waitForExpectations(timeout: 20.0, handler: nil)
   }
   
 }

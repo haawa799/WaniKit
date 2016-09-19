@@ -18,11 +18,11 @@ public struct SRSDistributionInfo {
     static let burned = "burned"
   }
   
-  let apprentice: SRSLevelInfo
-  let guru: SRSLevelInfo
-  let master: SRSLevelInfo
-  let enlighten: SRSLevelInfo
-  let burned: SRSLevelInfo
+  public let apprentice: SRSLevelInfo
+  public let guru: SRSLevelInfo
+  public let master: SRSLevelInfo
+  public let enlighten: SRSLevelInfo
+  public let burned: SRSLevelInfo
   
   public var all: [SRSLevelInfo] {
     return [apprentice, guru, master, enlighten, burned]
