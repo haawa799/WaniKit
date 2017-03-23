@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4308BBE11D85EC090048A257"
-               BuildableName = "WaniKit.framework"
-               BlueprintName = "WaniKit"
+               BlueprintIdentifier = "436F56121D8FD65000C90C3F"
+               BuildableName = "WaniModel.framework"
+               BlueprintName = "WaniModel"
                ReferencedContainer = "container:WaniKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4308BBE11D85EC090048A257"
-            BuildableName = "WaniKit.framework"
-            BlueprintName = "WaniKit"
+            BlueprintIdentifier = "436F56121D8FD65000C90C3F"
+            BuildableName = "WaniModel.framework"
+            BlueprintName = "WaniModel"
             ReferencedContainer = "container:WaniKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4308BBE11D85EC090048A257"
-            BuildableName = "WaniKit.framework"
-            BlueprintName = "WaniKit"
+            BlueprintIdentifier = "436F56121D8FD65000C90C3F"
+            BuildableName = "WaniModel.framework"
+            BlueprintName = "WaniModel"
             ReferencedContainer = "container:WaniKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
