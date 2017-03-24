@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/haawa799/Library/Mobile Documents/com~apple~CloudDocs/projects/WatchKit/WaniKit.xcodeproj">
+      location = "self:WaniKit.xcodeproj">
    </FileRef>
 </Workspace>

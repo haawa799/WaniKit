@@ -1,0 +1,9 @@
+language: objective-c
+osx_image: xcode8
+xcode_project: WaniKit.xcodeproj
+xcode_scheme: WaniKit
+xcode_sdk: iphonesimulator10.0
+before_install:
+  - carthage update --platform iOS
+script:
+  - set -o pipefail && xcodebuild -project WaniKit.xcodeproj -scheme WaniKit -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=10.0,name=iPhone SE' test | xcpretty

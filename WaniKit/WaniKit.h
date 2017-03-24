@@ -2,8 +2,8 @@
 //  WaniKit.h
 //  WaniKit
 //
-//  Created by Andriy K. on 9/11/16.
-//  Copyright © 2016 haawa. All rights reserved.
+//  Created by Andriy K. on 3/23/17.
+//  Copyright © 2017 @haawa799. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
