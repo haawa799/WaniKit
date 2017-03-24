@@ -29,7 +29,7 @@ internal struct WaniParsedData {
   init(root: [String : Any]) throws {
     guard let userDict = root[Key.userInfo] as? [String: Any] else { throw ParsingError.noUserInfo }
     guard let requestedInfoValue = root[Key.requestedInfo] else { throw ParsingError.noRequestedInfo }
-    guard let requestedInfo = RequestedInfo(value: requestedInfoValue) else { throw ParsingError.noRequestedInfo }
+    guard let requestedInfo = RequestedInfo(value: requestedInfoValue) else { throw ParsingError.requestedInfoNotCorrect }
     self.userInfoDictionary = userDict
     self.requestedInfo = requestedInfo
   }

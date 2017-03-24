@@ -20,4 +20,5 @@ public enum ParsingError: Error {
   case noRoot
   case noUserInfo
   case noRequestedInfo
+  case requestedInfoNotCorrect
 }

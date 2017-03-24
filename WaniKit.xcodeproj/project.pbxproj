@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4335C8181E856648001A7D4E /* WaniParsedDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4335C8171E856648001A7D4E /* WaniParsedDataTests.swift */; };
 		434FED551E842B0C006EA7ED /* WaniKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434FED4B1E842B0C006EA7ED /* WaniKit.framework */; };
 		434FED5C1E842B0C006EA7ED /* WaniKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 434FED4E1E842B0C006EA7ED /* WaniKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		434FED8F1E8521AC006EA7ED /* KanjiProviderPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434FED841E8521AC006EA7ED /* KanjiProviderPromise.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4335C8171E856648001A7D4E /* WaniParsedDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaniParsedDataTests.swift; sourceTree = "<group>"; };
 		434FED4B1E842B0C006EA7ED /* WaniKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WaniKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		434FED4E1E842B0C006EA7ED /* WaniKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaniKit.h; sourceTree = "<group>"; };
 		434FED4F1E842B0C006EA7ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				434FED991E8521C9006EA7ED /* responses */,
 				434FEDA21E8521C9006EA7ED /* WaniKitManagerTests.swift */,
+				4335C8171E856648001A7D4E /* WaniParsedDataTests.swift */,
 				434FEDA31E8521C9006EA7ED /* XCTests+Stub.swift */,
 				434FED5B1E842B0C006EA7ED /* Info.plist */,
 			);
@@ -365,6 +368,7 @@
 			files = (
 				434FEDAD1E8521C9006EA7ED /* XCTests+Stub.swift in Sources */,
 				434FEDAC1E8521C9006EA7ED /* WaniKitManagerTests.swift in Sources */,
+				4335C8181E856648001A7D4E /* WaniParsedDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

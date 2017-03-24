@@ -7,3 +7,5 @@ before_install:
   - carthage update --platform iOS
 script:
   - set -o pipefail && xcodebuild -project WaniKit.xcodeproj -scheme WaniKit -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=10.0,name=iPhone SE' test | xcpretty
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t c4a6651a-9545-400b-8461-e14f60581913

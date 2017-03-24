@@ -15,6 +15,7 @@ class WaniKitManagerTests: XCTestCase {
 
   let manager = WaniKitManager(apiKey: "thisApiKeyIsIgnoredBecauseOfStubs")
   let timeOut: TimeInterval = 0.5
+  let dashboardTimeOut: TimeInterval = 2
 
   override func tearDown() {
     super.tearDown()
@@ -155,6 +156,62 @@ class WaniKitManagerTests: XCTestCase {
       }.catch { (error) in
         debugPrint(error)
     }
-    waitForExpectations(timeout: timeOut * 4, handler: nil)
+    waitForExpectations(timeout: dashboardTimeOut, handler: nil)
+  }
+  
+  func testDashboardNoStudyQueue() {
+    stubJson("srs-distribution")
+    stubJson("level-progression")
+    stubJson("recent-unlocks")
+    let exp = expectation(description: "dashboard")
+    manager.fetchDashboard().then { (dashboard) in
+      }.catch { (error) in
+        guard let error = error as? WaniKitError else { return }
+        XCTAssert(error == .studyQueueNotLoaded)
+        exp.fulfill()
+    }
+    waitForExpectations(timeout: dashboardTimeOut, handler: nil)
+  }
+  
+  func testDashboardNoSRS() {
+    stubJson("study-queue")
+    stubJson("level-progression")
+    stubJson("recent-unlocks")
+    let exp = expectation(description: "dashboard")
+    manager.fetchDashboard().then { (dashboard) in
+      }.catch { (error) in
+        guard let error = error as? WaniKitError else { return }
+        XCTAssert(error == .srsNotLoaded)
+        exp.fulfill()
+    }
+    waitForExpectations(timeout: dashboardTimeOut, handler: nil)
+  }
+  
+  func testDashboardNoLevelProgression() {
+    stubJson("study-queue")
+    stubJson("srs-distribution")
+    stubJson("recent-unlocks")
+    let exp = expectation(description: "dashboard")
+    manager.fetchDashboard().then { (dashboard) in
+      }.catch { (error) in
+        guard let error = error as? WaniKitError else { return }
+        XCTAssert(error == .levelProgressionNotLoaded)
+        exp.fulfill()
+    }
+    waitForExpectations(timeout: dashboardTimeOut, handler: nil)
+  }
+  
+  func testDashboardNoRecentUnlocks() {
+    stubJson("study-queue")
+    stubJson("srs-distribution")
+    stubJson("level-progression")
+    let exp = expectation(description: "dashboard")
+    manager.fetchDashboard().then { (dashboard) in
+      }.catch { (error) in
+        guard let error = error as? WaniKitError else { return }
+        XCTAssert(error == .lastLevelUpNotLoaded)
+        exp.fulfill()
+    }
+    waitForExpectations(timeout: dashboardTimeOut, handler: nil)
   }
 }
