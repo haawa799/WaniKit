@@ -14,8 +14,8 @@ import WaniModel
 class WaniKitManagerTests: XCTestCase {
 
   let manager = WaniKitManager(apiKey: "thisApiKeyIsIgnoredBecauseOfStubs")
-  let timeOut: TimeInterval = 0.5
-  let dashboardTimeOut: TimeInterval = 2
+  let timeOut: TimeInterval = 2
+  let dashboardTimeOut: TimeInterval = 4
 
   override func tearDown() {
     super.tearDown()
