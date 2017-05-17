@@ -17,6 +17,7 @@ public enum WaniKitError: Error {
 }
 
 public enum ParsingError: Error {
+  case apiKeyProblem
   case noRoot
   case noUserInfo
   case noRequestedInfo

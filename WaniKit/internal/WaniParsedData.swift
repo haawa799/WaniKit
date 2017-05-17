@@ -27,6 +27,14 @@ internal struct WaniParsedData {
   let requestedInfo: RequestedInfo
 
   init(root: [String : Any]) throws {
+    if let errorDict = root[Key.error] as? [String: Any] {
+        if let errorCode = errorDict[Key.code] as? String {
+          switch errorCode {
+            case ErrorCode.userNotFound: throw ParsingError.apiKeyProblem
+            default: break
+          }
+        }
+    }
     guard let userDict = root[Key.userInfo] as? [String: Any] else { throw ParsingError.noUserInfo }
     guard let requestedInfoValue = root[Key.requestedInfo] else { throw ParsingError.noRequestedInfo }
     guard let requestedInfo = RequestedInfo(value: requestedInfoValue) else { throw ParsingError.requestedInfoNotCorrect }
@@ -39,5 +47,10 @@ extension WaniParsedData {
   struct Key {
     static let userInfo = "user_information"
     static let requestedInfo = "requested_information"
+    static let error = "error"
+    static let code = "code"
+  }
+  struct ErrorCode {
+    static let userNotFound = "user_not_found"
   }
 }

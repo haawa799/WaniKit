@@ -8,10 +8,15 @@
 
 import Foundation
 
-public struct WaniKitManager {
+public protocol WaniKitManagerDelegate: class {
+    func apiKeyIncorect()
+}
+
+public class WaniKitManager {
 
   public let apiKey: String
-
+  public weak var delegate: WaniKitManagerDelegate?
+    
   public init(apiKey: String) {
     self.apiKey = apiKey
   }

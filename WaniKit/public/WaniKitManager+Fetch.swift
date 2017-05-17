@@ -14,47 +14,83 @@ public extension WaniKitManager {
 
   public func fetchUserInfo() -> Promise<UserInfo> {
     let endpoint = WaniEndpoint.userInfo(apiKey: apiKey)
-    return UserInfoProviderPromise.providerPromise(endpoint: endpoint)
+    return UserInfoProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchLevelProgression() -> Promise<LevelProgressionInfo> {
     let endpoint = WaniEndpoint.levelProgression(apiKey: apiKey)
-    return LevelProgressionProviderPromise.providerPromise(endpoint: endpoint)
+    return LevelProgressionProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchCriticalItems(percentage: Int) -> Promise<[ReviewItemInfo]> {
     let endpoint = WaniEndpoint.criticalItems(apiKey: apiKey, percentage: percentage)
-    return ItemsProviderPromise.providerPromise(endpoint: endpoint)
+    return ItemsProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchRadicalPromise(level: Int) -> Promise<[RadicalInfo]> {
     let endpoint = WaniEndpoint.radicalList(apiKey: apiKey, level: level)
-    return RadicalProviderPromise.providerPromise(endpoint: endpoint)
+    return RadicalProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchKanjiPromise(level: Int) -> Promise<[KanjiInfo]> {
     let endpoint = WaniEndpoint.kanjiList(apiKey: apiKey, level: level)
-    return KanjiProviderPromise.providerPromise(endpoint: endpoint)
+    return KanjiProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchVocabPromise(level: Int) -> Promise<[WordInfo]> {
     let endpoint = WaniEndpoint.wordList(apiKey: apiKey, level: level)
-    return VocabProviderPromise.providerPromise(endpoint: endpoint)
+    return VocabProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchRecentUnlocks(limit: Int) -> Promise<[ReviewItemInfo]> {
     let endpoint = WaniEndpoint.recentUnlocks(apiKey: apiKey, limit: limit)
-    return ItemsProviderPromise.providerPromise(endpoint: endpoint)
+    return ItemsProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchSRS() -> Promise<SRSDistributionInfo> {
     let endpoint = WaniEndpoint.srsDistribution(apiKey: apiKey)
-    return SRSProviderPromise.providerPromise(endpoint: endpoint)
+    return SRSProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchStudyQueue() -> Promise<StudyQueueInfo> {
     let endpoint = WaniEndpoint.studyQueue(apiKey: apiKey)
-    return StudyQueueProviderPromise.providerPromise(endpoint: endpoint)
+    return StudyQueueProviderPromise.providerPromise(endpoint: endpoint).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+    })
   }
 
   public func fetchLastLevelUp() -> Promise<Date> {
@@ -62,7 +98,11 @@ public extension WaniKitManager {
     return ItemsProviderPromise.providerPromise(endpoint: endpoint).then { (items) -> Promise<Date> in
       guard let first = items.first, let date = first.unlockedDate else { throw WaniKitError.noRecentUnlocks }
       return Promise(value: date)
-    }
+        }.catch({ [weak self] error in
+            if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+                self?.delegate?.apiKeyIncorect()
+            }
+        })
   }
 
   public func fetchDashboard() -> Promise<DashboardInfo> {
@@ -94,7 +134,12 @@ public extension WaniKitManager {
         studyQueue = queue
         counter += 1
         try tryToFulfillPromise()
-      }).catch({ _ in reject(WaniKitError.studyQueueNotLoaded) })
+      }).catch({ [weak self] error in
+        if error.localizedDescription == ParsingError.apiKeyProblem.localizedDescription {
+            self?.delegate?.apiKeyIncorect()
+        }
+        reject(WaniKitError.studyQueueNotLoaded)
+      })
 
       // level progression promise
       levelProgressionPromise.then({ (progression) in
