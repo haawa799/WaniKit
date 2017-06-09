@@ -216,7 +216,6 @@
 				434FED471E842B0C006EA7ED /* Frameworks */,
 				434FED481E842B0C006EA7ED /* Headers */,
 				434FED491E842B0C006EA7ED /* Resources */,
-				434FEDB11E852235006EA7ED /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -311,21 +310,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		434FEDB11E852235006EA7ED /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/WaniModel.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Promise.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		434FEDB61E852403006EA7ED /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
